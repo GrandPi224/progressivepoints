@@ -109,10 +109,13 @@
   li.tocgrp:first-child { border-top:0; }
   a.tocg {
     display:block; font-size:18px; font-weight:700; color:var(--heading);
-    text-decoration:none; line-height:1.3; padding:4px 0;
+    text-decoration:none; line-height:1.3; padding:11px 0;
   }
   .toccount { display:block; font-size:13.5px; color:var(--mute); margin-top:1px; }
-  a.tocc { font-weight:700; text-decoration:none; }
+  a.tocc {
+    display:inline-flex; align-items:center; min-height:44px;
+    padding:0 8px; margin-left:-2px; font-weight:700; text-decoration:none;
+  }
   .tocnone { font-style:italic; }
   ul.tocsub { list-style:none; margin:8px 0 0; padding:0; }
   ul.tocsub a {
