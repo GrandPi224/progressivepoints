@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#10141a">
+<title>U.S. ECONOMY: 25 REASONS IT CONTRACTS (CONTRACTION CASE)</title>
+<style>
+  :root {
+    color-scheme:dark;
+    --bg:#10141a;          /* page */
+    --surface:#181e27;     /* cards, chart wells */
+    --panel:#1e2530;       /* buttons, inset chrome */
+    --line:#2b3542;
+    --ink:#e4e9f0;         /* body text */
+    --mute:#96a4b8;        /* secondary text */
+    --accent:#7fb2ee;      /* headings, rules */
+    --accent-deep:#2a5c96; /* solid fills behind light text */
+    --link:#8cc0ff;
+    --bar-pos:#5fa3e8;
+    --bar-neg:#f0776c;
+    --svg-grid:#38434f;
+    --svg-label:#c9d4e2;
+    --svg-axis:#8a97a9;
+  }
+  * { box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; scroll-behavior:auto; }
+  body {
+    margin:0 auto; padding:0 16px 96px; max-width:720px;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:16px; line-height:1.5; color:var(--ink); background:var(--bg);
+    overflow-x:hidden; -webkit-font-smoothing:antialiased;
+  }
+
+  /* ================= ONE SECTION AT A TIME =================
+     Every .panel is hidden until it is the :target, or until it
+     contains the :target (so deep links to a single reason or chart
+     still open the panel they live in). Contents is the default view
+     and hides itself as soon as any panel is open.               */
+  .panel { display:none; }
+  .panel:target { display:block; }
+  .panel:has(:target) { display:block; }
+  #contents { display:block; }
+  body:has(.panel:target) #contents { display:none; }
+  body:has(.panel :target) #contents { display:none; }
+  :target { scroll-margin-top:10px; }
+  /* Printing must not lose content that happens to be hidden. */
+  @media print {
+    .panel, #contents { display:block !important; }
+    a.fab { display:none !important; }
+    :root {
+      --bg:#fff; --surface:#fff; --panel:#f6f8fa; --line:#d5dbe3;
+      --ink:#15304f; --mute:#4a5666; --accent:#1f3a5f; --accent-deep:#1f3a5f;
+      --link:#1a5fa8; --bar-pos:#1f3a5f; --bar-neg:#b3352e;
+      --svg-grid:#c9d0d9; --svg-label:#2b3440; --svg-axis:#6b7684;
+    }
+    body { background:#fff; color:#15304f; }
+  }
+
+  header { padding:26px 0 14px; border-bottom:3px solid var(--accent); }
+  h1 { font-size:22px; line-height:1.25; margin:0 0 8px; color:var(--accent); }
+  .sub { font-size:15px; color:var(--mute); margin:0; }
+  h2 {
+    font-size:15px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--accent); margin:26px 0 4px; padding-bottom:6px;
+    border-bottom:1px solid var(--line);
+  }
+  .lede { font-size:15px; color:var(--mute); margin:10px 0 16px; }
+  a { color:var(--link); }
+
+  /* ---- contents ---- */
+  #contents { padding:2px 0 0; }
+  ol.tocroot { list-style:none; margin:0; padding:0; }
+  li.tocgrp { padding:12px 0; border-top:1px solid var(--line); }
+  li.tocgrp:first-child { border-top:0; }
+  a.tocg {
+    display:block; font-size:18px; font-weight:700; color:var(--accent);
+    text-decoration:none; line-height:1.3; padding:4px 0;
+  }
+  .toccount { display:block; font-size:13.5px; color:var(--mute); margin-top:1px; }
+  a.tocc { font-weight:700; text-decoration:none; }
+  .tocnone { font-style:italic; }
+  ul.tocsub { list-style:none; margin:8px 0 0; padding:0; }
+  ul.tocsub a {
+    display:flex; gap:9px; align-items:flex-start;
+    font-size:15px; line-height:1.35; text-decoration:none; color:var(--ink);
+    padding:12px 6px; border-radius:4px;
+  }
+  ul.tocsub a:hover { background:var(--surface); }
+  .tocnum {
+    flex:0 0 auto; min-width:22px; text-align:right;
+    color:var(--mute); font-weight:700; font-size:13.5px; padding-top:1px;
+  }
+  .tocfoot {
+    font-size:14px; color:var(--mute); margin:18px 0 0;
+    padding-top:14px; border-top:1px solid var(--line);
+  }
+
+  /* ---- panel chrome ---- */
+  h3.grp {
+    font-size:19px; color:var(--accent); margin:22px 0 2px;
+    padding:0 0 8px; border-bottom:2px solid var(--accent);
+  }
+  .grpn { font-size:13px; font-weight:400; color:var(--mute); }
+  p.grpnav { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 4px; }
+  p.grpnav a {
+    font-size:14px; font-weight:700; text-decoration:none; color:var(--ink);
+    background:var(--panel); border:1px solid var(--line); border-radius:5px;
+    padding:14px 12px; line-height:1.2;
+  }
+  p.grpnav a.home { background:var(--accent-deep); color:#f2f7ff; border-color:var(--accent-deep); }
+  p.panelend {
+    margin:20px 0 0; padding-top:14px; border-top:1px solid var(--line);
+  }
+  p.panelend a { font-size:15px; font-weight:700; text-decoration:none; }
+
+  /* ---- cards ---- */
+  .card {
+    border:1px solid var(--line); border-left:4px solid var(--accent);
+    border-radius:6px; padding:14px; margin:14px 0; background:var(--surface);
+  }
+  .cardhead { display:flex; gap:10px; align-items:baseline; }
+  .num {
+    flex:0 0 auto; min-width:26px; height:26px; line-height:26px;
+    text-align:center; background:var(--accent); color:var(--bg);
+    font-size:13px; font-weight:700; border-radius:4px;
+  }
+  .card h4 { font-size:17px; line-height:1.3; margin:0; font-weight:700; }
+  .evid { margin:10px 0 8px; font-size:16px; }
+  .meta { margin:0 0 10px; font-size:14px; color:var(--mute); }
+  p.cardnav { display:flex; flex-wrap:wrap; gap:8px; margin:0; align-items:center; }
+  .jump {
+    display:inline-block; font-size:15px; font-weight:700;
+    text-decoration:none; color:var(--ink);
+    border:1px solid var(--line); border-radius:5px;
+    padding:11px 12px; background:var(--panel);
+  }
+  .jump.ghost { color:var(--mute); font-weight:400; }
+  .nofig { font-size:14px; color:var(--mute); font-style:italic; }
+
+  /* ---- charts ---- */
+  .chart {
+    border:1px solid var(--line); border-radius:6px;
+    padding:14px; margin:18px 0; background:var(--surface);
+  }
+  .chart h4 {
+    font-size:17px; line-height:1.3; margin:0 0 6px;
+    color:var(--accent); font-weight:700;
+  }
+  .desc { font-size:15px; margin:0 0 12px; }
+  .plot { width:100%; }
+  .plot svg { width:100%; height:auto; display:block; }
+  table.data {
+    width:100%; border-collapse:collapse; margin:12px 0 10px; font-size:15px;
+    table-layout:fixed;
+  }
+  table.data th, table.data td {
+    border-bottom:1px solid var(--line); padding:8px 6px; text-align:left;
+    word-wrap:break-word; overflow-wrap:break-word;
+  }
+  table.data th {
+    font-size:13px; text-transform:uppercase; letter-spacing:.04em;
+    color:var(--mute); border-bottom:2px solid var(--line);
+  }
+  .num-cell { text-align:right; width:34%; font-variant-numeric:tabular-nums; }
+  .src { font-size:13.5px; color:var(--mute); margin:0 0 8px; }
+  .back { margin:0; }
+  .back a { font-size:14px; text-decoration:none; }
+
+  /* ---- persistent return ---- */
+  a.fab {
+    position:fixed; z-index:50;
+    right:14px; bottom:calc(14px + env(safe-area-inset-bottom, 0px));
+    display:inline-flex; align-items:center; gap:7px;
+    min-height:48px; padding:0 18px;
+    font-size:15px; font-weight:700; line-height:48px;
+    color:#f2f7ff; background:var(--accent-deep); text-decoration:none;
+    border-radius:24px; border:1px solid #3f74ad;
+    box-shadow:0 3px 14px rgba(0,0,0,.55);
+  }
+  a.fab:active { background:#1e4470; }
+
+  footer {
+    margin-top:30px; padding-top:16px; border-top:1px solid var(--line);
+    font-size:14.5px; color:var(--mute);
+  }
+  footer p { margin:0 0 10px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>U.S. ECONOMY: 25 REASONS IT CONTRACTS (CONTRACTION CASE)</h1>
+  <p class="sub">Contraction-case evidence current through July 31, 2026. Companion tab: Expansion Case.</p>
+</header>
+
+
+  <nav id="contents" aria-label="Table of contents">
+    <h2 class="tochead">Contents</h2>
+    <p class="lede">Twenty-five reasons and nineteen charts, in workbook order,
+      grouped by theme. Tap a section to open it on its own.</p>
+    <ol class="tocroot">
+      <li class="tocgrp">
+        <a class="tocg" href="#g-growth">Growth &amp; inflation</a>
+        <span class="toccount">5 reasons
+          &middot; <a class="tocc" href="#cg-growth">5 charts &rarr;</a></span>
+        <ul class="tocsub"><li><a href="#ind-1"><span class="tocnum">1</span><span>Headline growth is decelerating</span></a></li><li><a href="#ind-2"><span class="tocnum">2</span><span>Domestic inflation reaccelerated</span></a></li><li><a href="#ind-3"><span class="tocnum">3</span><span>PCE inflation is still too high</span></a></li><li><a href="#ind-4"><span class="tocnum">4</span><span>Energy inflation can squeeze consumers</span></a></li><li><a href="#ind-5"><span class="tocnum">5</span><span>Real wage growth is barely positive</span></a></li></ul>
+      </li>
+      <li class="tocgrp">
+        <a class="tocg" href="#g-labor">Labor market</a>
+        <span class="toccount">3 reasons
+          &middot; <a class="tocc" href="#cg-labor">3 charts &rarr;</a></span>
+        <ul class="tocsub"><li><a href="#ind-6"><span class="tocnum">6</span><span>Payroll momentum is weak and revisions are negative</span></a></li><li><a href="#ind-7"><span class="tocnum">7</span><span>Labor-force participation fell sharply</span></a></li><li><a href="#ind-8"><span class="tocnum">8</span><span>Long-term unemployment is rising</span></a></li></ul>
+      </li>
+      <li class="tocgrp">
+        <a class="tocg" href="#g-sentiment">Confidence &amp; leading indicators</a>
+        <span class="toccount">2 reasons
+          &middot; <a class="tocc" href="#cg-sentiment">2 charts &rarr;</a></span>
+        <ul class="tocsub"><li><a href="#ind-9"><span class="tocnum">9</span><span>Consumer confidence is weak</span></a></li><li><a href="#ind-10"><span class="tocnum">10</span><span>Leading indicators remain negative</span></a></li></ul>
+      </li>
+      <li class="tocgrp">
+        <a class="tocg" href="#g-household">Household finances</a>
+        <span class="toccount">4 reasons
+          &middot; <a class="tocc" href="#cg-household">3 charts &rarr;</a></span>
+        <ul class="tocsub"><li><a href="#ind-11"><span class="tocnum">11</span><span>Households have a thin saving buffer</span></a></li><li><a href="#ind-12"><span class="tocnum">12</span><span>Consumer credit has stalled</span></a></li><li><a href="#ind-13"><span class="tocnum">13</span><span>Consumer delinquencies remain elevated</span></a></li><li><a href="#ind-14"><span class="tocnum">14</span><span>Bankruptcy filings are accelerating</span></a></li></ul>
+      </li>
+      <li class="tocgrp">
+        <a class="tocg" href="#g-housing">Housing &amp; construction</a>
+        <span class="toccount">5 reasons
+          &middot; <a class="tocc" href="#cg-housing">4 charts &rarr;</a></span>
+        <ul class="tocsub"><li><a href="#ind-15"><span class="tocnum">15</span><span>Mortgage rates remain restrictive</span></a></li><li><a href="#ind-16"><span class="tocnum">16</span><span>Housing demand is weakening</span></a></li><li><a href="#ind-17"><span class="tocnum">17</span><span>Residential permits point lower</span></a></li><li><a href="#ind-18"><span class="tocnum">18</span><span>Construction spending is contracting</span></a></li><li><a href="#ind-19"><span class="tocnum">19</span><span>Home valuations remain stretched</span></a></li></ul>
+      </li>
+      <li class="tocgrp">
+        <a class="tocg" href="#g-markets">Markets &amp; credit</a>
+        <span class="toccount">5 reasons
+          &middot; <a class="tocc" href="#cg-markets">2 charts &rarr;</a></span>
+        <ul class="tocsub"><li><a href="#ind-20"><span class="tocnum">20</span><span>Equity-market liquidity is thin</span></a></li><li><a href="#ind-21"><span class="tocnum">21</span><span>Riskier borrowers face debt-service stress</span></a></li><li><a href="#ind-22"><span class="tocnum">22</span><span>Corporate borrowing is accelerating</span></a></li><li><a href="#ind-23"><span class="tocnum">23</span><span>Equity valuations leave little margin for error</span></a></li><li><a href="#ind-24"><span class="tocnum">24</span><span>Credit spreads leave limited shock absorption</span></a></li></ul>
+      </li>
+      <li class="tocgrp">
+        <a class="tocg" href="#g-fiscal">Fiscal capacity</a>
+        <span class="toccount">1 reason
+          &middot; <span class="tocnone">no charts</span></span>
+        <ul class="tocsub"><li><a href="#ind-25"><span class="tocnum">25</span><span>Federal deficits reduce policy flexibility</span></a></li></ul>
+      </li></ol>
+    <p class="tocfoot">Interpretation: The contraction side identifies weakening trends and financial fragilities that could turn slow growth negative.</p>
+  </nav>
+
+  <section class="panel" id="g-growth">
+    <h3 class="grp">Growth &amp; inflation <span class="grpn">reasons 1&ndash;5</span></h3>
+    <p class="grpnav">
+      <a class="home" href="#contents">&uarr; Contents</a>
+      <a href="#cg-growth">5 charts for this section &rarr;</a>
+    </p>
+    
+    <article class="card" id="ind-1">
+      <div class="cardhead"><span class="num">1</span>
+        <h4>Headline growth is decelerating</h4></div>
+      <p class="evid">Q2 real GDP slowed to 1.5% annualized from 2.1% in Q1.</p>
+      <p class="meta">2026-07-30 &middot;
+        <a href="https://www.bea.gov/news/2026/gdp-advance-estimate-2nd-quarter-2026" target="_blank" rel="noopener">bea.gov</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-1">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <article class="card" id="ind-2">
+      <div class="cardhead"><span class="num">2</span>
+        <h4>Domestic inflation reaccelerated</h4></div>
+      <p class="evid">The gross domestic purchases price index rose 5.7% annualized in Q2 versus 3.6% in Q1.</p>
+      <p class="meta">2026-07-30 &middot;
+        <a href="https://www.bea.gov/news/2026/gdp-advance-estimate-2nd-quarter-2026" target="_blank" rel="noopener">bea.gov</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-2">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <article class="card" id="ind-3">
+      <div class="cardhead"><span class="num">3</span>
+        <h4>PCE inflation is still too high</h4></div>
+      <p class="evid">Q2 PCE prices rose 5.1% annualized; core PCE prices rose 3.4%.</p>
+      <p class="meta">2026-07-30 &middot;
+        <a href="https://www.bea.gov/news/2026/gdp-advance-estimate-2nd-quarter-2026" target="_blank" rel="noopener">bea.gov</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-3">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <article class="card" id="ind-4">
+      <div class="cardhead"><span class="num">4</span>
+        <h4>Energy inflation can squeeze consumers</h4></div>
+      <p class="evid">CPI rose 3.5% year over year; energy rose 15.7% and gasoline rose 26.7%.</p>
+      <p class="meta">2026-07-14 &middot;
+        <a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank" rel="noopener">bls.gov</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-4">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <article class="card" id="ind-5">
+      <div class="cardhead"><span class="num">5</span>
+        <h4>Real wage growth is barely positive</h4></div>
+      <p class="evid">Real hourly earnings were only 0.1% above a year ago; production-worker real hourly pay was down 0.1%.</p>
+      <p class="meta">2026-07-14 &middot;
+        <a href="https://www.bls.gov/news.release/realer.nr0.htm" target="_blank" rel="noopener">bls.gov</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-5">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <p class="panelend"><a href="#contents">&uarr; Back to contents</a></p>
+  </section>
+  <section class="panel" id="g-labor">
+    <h3 class="grp">Labor market <span class="grpn">reasons 6&ndash;8</span></h3>
+    <p class="grpnav">
+      <a class="home" href="#contents">&uarr; Contents</a>
+      <a href="#cg-labor">3 charts for this section &rarr;</a>
+    </p>
+    
+    <article class="card" id="ind-6">
+      <div class="cardhead"><span class="num">6</span>
+        <h4>Payroll momentum is weak and revisions are negative</h4></div>
+      <p class="evid">June added only 57,000 jobs; April and May payrolls were revised down by 74,000 combined.</p>
+      <p class="meta">2026-07-02 &middot;
+        <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank" rel="noopener">bls.gov</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-6">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <article class="card" id="ind-7">
+      <div class="cardhead"><span class="num">7</span>
+        <h4>Labor-force participation fell sharply</h4></div>
+      <p class="evid">Participation dropped 0.3 percentage point to 61.5%; the employment-population ratio slipped to 59.0%.</p>
+      <p class="meta">2026-07-02 &middot;
+        <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank" rel="noopener">bls.gov</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-7">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <article class="card" id="ind-8">
+      <div class="cardhead"><span class="num">8</span>
+        <h4>Long-term unemployment is rising</h4></div>
+      <p class="evid">Long-term unemployment increased by 286,000 from a year earlier and reached 27.3% of total unemployment.</p>
+      <p class="meta">2026-07-02 &middot;
+        <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank" rel="noopener">bls.gov</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-8">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <p class="panelend"><a href="#contents">&uarr; Back to contents</a></p>
+  </section>
+  <section class="panel" id="g-sentiment">
+    <h3 class="grp">Confidence &amp; leading indicators <span class="grpn">reasons 9&ndash;10</span></h3>
+    <p class="grpnav">
+      <a class="home" href="#contents">&uarr; Contents</a>
+      <a href="#cg-sentiment">2 charts for this section &rarr;</a>
+    </p>
+    
+    <article class="card" id="ind-9">
+      <div class="cardhead"><span class="num">9</span>
+        <h4>Consumer confidence is weak</h4></div>
+      <p class="evid">The July Consumer Confidence Index fell to 90.8; the Expectations Index remained at 74.7.</p>
+      <p class="meta">2026-07-28 &middot;
+        <a href="https://www.conference-board.org/topics/consumer-confidence" target="_blank" rel="noopener">conference-board.org</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-9">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <article class="card" id="ind-10">
+      <div class="cardhead"><span class="num">10</span>
+        <h4>Leading indicators remain negative</h4></div>
+      <p class="evid">The Leading Economic Index declined 0.2% in June and 0.3% over the first half of 2026.</p>
+      <p class="meta">2026-07-20 &middot;
+        <a href="https://www.conference-board.org/topics/us-leading-indicators" target="_blank" rel="noopener">conference-board.org</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-10">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <p class="panelend"><a href="#contents">&uarr; Back to contents</a></p>
+  </section>
+  <section class="panel" id="g-household">
+    <h3 class="grp">Household finances <span class="grpn">reasons 11&ndash;14</span></h3>
+    <p class="grpnav">
+      <a class="home" href="#contents">&uarr; Contents</a>
+      <a href="#cg-household">3 charts for this section &rarr;</a>
+    </p>
+    
+    <article class="card" id="ind-11">
+      <div class="cardhead"><span class="num">11</span>
+        <h4>Households have a thin saving buffer</h4></div>
+      <p class="evid">The personal saving rate was only 2.7% in June.</p>
+      <p class="meta">2026-07-30 &middot;
+        <a href="https://www.bea.gov/news/2026/personal-income-and-outlays-june-2026" target="_blank" rel="noopener">bea.gov</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-11">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <article class="card" id="ind-12">
+      <div class="cardhead"><span class="num">12</span>
+        <h4>Consumer credit has stalled</h4></div>
+      <p class="evid">Total consumer credit was unchanged in May; revolving credit fell at a 4.7% annual rate.</p>
+      <p class="meta">2026-07-08 &middot;
+        <a href="https://www.federalreserve.gov/releases/g19/current/" target="_blank" rel="noopener">federalreserve.gov</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-12">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <article class="card" id="ind-13">
+      <div class="cardhead"><span class="num">13</span>
+        <h4>Consumer delinquencies remain elevated</h4></div>
+      <p class="evid">The Federal Reserve reports auto-loan and credit-card delinquencies remain high by recent historical standards.</p>
+      <p class="meta">2026-05-08 &middot;
+        <a href="https://www.federalreserve.gov/publications/2026-may-financial-stability-report-overview.htm" target="_blank" rel="noopener">federalreserve.gov</a></p>
+      <p class="cardnav"><span class="nofig">No figures in row</span>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <article class="card" id="ind-14">
+      <div class="cardhead"><span class="num">14</span>
+        <h4>Bankruptcy filings are accelerating</h4></div>
+      <p class="evid">Total bankruptcy filings rose 12.2% year over year; business filings rose 16.9%.</p>
+      <p class="meta">2026-07-28 &middot;
+        <a href="https://www.uscourts.gov/data-news/judiciary-news/2026/07/28/bankruptcies-rise-122-percent" target="_blank" rel="noopener">uscourts.gov</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-13">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <p class="panelend"><a href="#contents">&uarr; Back to contents</a></p>
+  </section>
+  <section class="panel" id="g-housing">
+    <h3 class="grp">Housing &amp; construction <span class="grpn">reasons 15&ndash;19</span></h3>
+    <p class="grpnav">
+      <a class="home" href="#contents">&uarr; Contents</a>
+      <a href="#cg-housing">4 charts for this section &rarr;</a>
+    </p>
+    
+    <article class="card" id="ind-15">
+      <div class="cardhead"><span class="num">15</span>
+        <h4>Mortgage rates remain restrictive</h4></div>
+      <p class="evid">The 30-year fixed mortgage rate was 6.66% on July 30.</p>
+      <p class="meta">2026-07-30 &middot;
+        <a href="https://fred.stlouisfed.org/series/MORTGAGE30US" target="_blank" rel="noopener">fred.stlouisfed.org</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-14">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <article class="card" id="ind-16">
+      <div class="cardhead"><span class="num">16</span>
+        <h4>Housing demand is weakening</h4></div>
+      <p class="evid">Pending home sales fell 5.4% month over month in June and 0.3% year over year.</p>
+      <p class="meta">2026-07-16 &middot;
+        <a href="https://www.nar.realtor/newsroom/nar-pending-home-sales-report-shows-5-4-decrease-in-june" target="_blank" rel="noopener">nar.realtor</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-15">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <article class="card" id="ind-17">
+      <div class="cardhead"><span class="num">17</span>
+        <h4>Residential permits point lower</h4></div>
+      <p class="evid">Building permits fell 3.0% month over month and 2.3% year over year; single-family permits fell 2.4% month over month.</p>
+      <p class="meta">2026-07-17 &middot;
+        <a href="https://www.census.gov/construction/nrc/current/index.html" target="_blank" rel="noopener">census.gov</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-16">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <article class="card" id="ind-18">
+      <div class="cardhead"><span class="num">18</span>
+        <h4>Construction spending is contracting</h4></div>
+      <p class="evid">May construction spending was down 1.5% year over year and 2.7% year to date.</p>
+      <p class="meta">2026-07-01 &middot;
+        <a href="https://www.census.gov/construction/c30/current/index.html" target="_blank" rel="noopener">census.gov</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-17">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <article class="card" id="ind-19">
+      <div class="cardhead"><span class="num">19</span>
+        <h4>Home valuations remain stretched</h4></div>
+      <p class="evid">The Federal Reserve says residential valuation pressure and price-to-rent ratios remain elevated.</p>
+      <p class="meta">2026-05-08 &middot;
+        <a href="https://www.federalreserve.gov/publications/2026-may-financial-stability-report-overview.htm" target="_blank" rel="noopener">federalreserve.gov</a></p>
+      <p class="cardnav"><span class="nofig">No figures in row</span>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <p class="panelend"><a href="#contents">&uarr; Back to contents</a></p>
+  </section>
+  <section class="panel" id="g-markets">
+    <h3 class="grp">Markets &amp; credit <span class="grpn">reasons 20&ndash;24</span></h3>
+    <p class="grpnav">
+      <a class="home" href="#contents">&uarr; Contents</a>
+      <a href="#cg-markets">2 charts for this section &rarr;</a>
+    </p>
+    
+    <article class="card" id="ind-20">
+      <div class="cardhead"><span class="num">20</span>
+        <h4>Equity-market liquidity is thin</h4></div>
+      <p class="evid">A Federal Reserve measure of equity-market liquidity worsened and moved toward the lower end of its distribution since 2019.</p>
+      <p class="meta">2026-05-08 &middot;
+        <a href="https://www.federalreserve.gov/publications/files/financial-stability-report-20260508.pdf" target="_blank" rel="noopener">federalreserve.gov</a></p>
+      <p class="cardnav"><span class="nofig">No figures in row</span>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <article class="card" id="ind-21">
+      <div class="cardhead"><span class="num">21</span>
+        <h4>Riskier borrowers face debt-service stress</h4></div>
+      <p class="evid">The Federal Reserve says some weaker firms, especially borrowers dependent on private credit, face debt-service difficulty.</p>
+      <p class="meta">2026-05-08 &middot;
+        <a href="https://www.federalreserve.gov/publications/2026-may-financial-stability-report-overview.htm" target="_blank" rel="noopener">federalreserve.gov</a></p>
+      <p class="cardnav"><span class="nofig">No figures in row</span>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <article class="card" id="ind-22">
+      <div class="cardhead"><span class="num">22</span>
+        <h4>Corporate borrowing is accelerating</h4></div>
+      <p class="evid">Nonfinancial corporate debt grew at an 8.8% annual rate in Q1, increasing rate and refinancing exposure.</p>
+      <p class="meta">2026-06-11 &middot;
+        <a href="https://www.federalreserve.gov/releases/z1/current/recent_developments.htm" target="_blank" rel="noopener">federalreserve.gov</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-18">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <article class="card" id="ind-23">
+      <div class="cardhead"><span class="num">23</span>
+        <h4>Equity valuations leave little margin for error</h4></div>
+      <p class="evid">Forward equity price-to-earnings ratios remained in the upper range of their historical distribution.</p>
+      <p class="meta">2026-05-08 &middot;
+        <a href="https://www.federalreserve.gov/publications/2026-may-financial-stability-report-overview.htm" target="_blank" rel="noopener">federalreserve.gov</a></p>
+      <p class="cardnav"><span class="nofig">No figures in row</span>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <article class="card" id="ind-24">
+      <div class="cardhead"><span class="num">24</span>
+        <h4>Credit spreads leave limited shock absorption</h4></div>
+      <p class="evid">Investment-grade option-adjusted spreads were only 0.81 percentage point on July 29.</p>
+      <p class="meta">2026-07-29 &middot;
+        <a href="https://fred.stlouisfed.org/series/BAMLC0A0CM" target="_blank" rel="noopener">fred.stlouisfed.org</a></p>
+      <p class="cardnav"><a class="jump" href="#chart-19">View chart &darr;</a>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <p class="panelend"><a href="#contents">&uarr; Back to contents</a></p>
+  </section>
+  <section class="panel" id="g-fiscal">
+    <h3 class="grp">Fiscal capacity <span class="grpn">reasons 25&ndash;25</span></h3>
+    <p class="grpnav">
+      <a class="home" href="#contents">&uarr; Contents</a>
+      
+    </p>
+    
+    <article class="card" id="ind-25">
+      <div class="cardhead"><span class="num">25</span>
+        <h4>Federal deficits reduce policy flexibility</h4></div>
+      <p class="evid">Persistent deficits and net-interest outlays reduce room for countercyclical fiscal support during a downturn.</p>
+      <p class="meta">2026-06 &middot;
+        <a href="https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/" target="_blank" rel="noopener">fiscaldata.treasury.gov</a></p>
+      <p class="cardnav"><span class="nofig">No figures in row</span>
+        <a class="jump ghost" href="#contents">&uarr; Contents</a></p>
+    </article>
+    <p class="panelend"><a href="#contents">&uarr; Back to contents</a></p>
+  </section>
+
+  <section class="panel" id="cg-growth">
+    <h3 class="grp">Growth &amp; inflation <span class="grpn">5 charts</span></h3>
+    <p class="grpnav">
+      <a class="home" href="#contents">&uarr; Contents</a>
+      <a href="#g-growth">&larr; Reasons 1&ndash;5</a>
+    </p>
+    
+    <section class="chart" id="chart-1">
+      <h4>1. Real GDP growth (% SAAR)</h4>
+      <p class="desc">Q2 real GDP slowed to 1.5% annualized from 2.1% in Q1.</p>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t1" preserveAspectRatio="xMidYMid meet"><title id="t1">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q1 2026</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">2.1</text><rect x="138.0" y="46.0" width="122.8" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q2 2026</text><text x="266.8" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">1.5</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>Q1 2026</td><td class='num-cell'>2.1</td></tr><tr><td>Q2 2026</td><td class='num-cell'>1.5</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://www.bea.gov/news/2026/gdp-advance-estimate-2nd-quarter-2026" target="_blank"
+         rel="noopener">bea.gov</a> &middot; 2026-07-30</p>
+      <p class="back"><a href="#ind-1">&larr; Reason
+         1</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <section class="chart" id="chart-2">
+      <h4>2. Gross domestic purchases price index (% SAAR)</h4>
+      <p class="desc">The gross domestic purchases price index rose 5.7% annualized in Q2 versus 3.6% in Q1.</p>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t2" preserveAspectRatio="xMidYMid meet"><title id="t2">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="108.6" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q1 2026</text><text x="252.6" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">3.6</text><rect x="138.0" y="46.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q2 2026</text><text x="315.9" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">5.7</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>Q1 2026</td><td class='num-cell'>3.6</td></tr><tr><td>Q2 2026</td><td class='num-cell'>5.7</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://www.bea.gov/news/2026/gdp-advance-estimate-2nd-quarter-2026" target="_blank"
+         rel="noopener">bea.gov</a> &middot; 2026-07-30</p>
+      <p class="back"><a href="#ind-2">&larr; Reason
+         2</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <section class="chart" id="chart-3">
+      <h4>3. Q2 PCE inflation (% SAAR)</h4>
+      <p class="desc">Q2 PCE prices rose 5.1% annualized; core PCE prices rose 3.4%.</p>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t3" preserveAspectRatio="xMidYMid meet"><title id="t3">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Headline PCE</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">5.1</text><rect x="138.0" y="46.0" width="114.6" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Core PCE</text><text x="258.6" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">3.4</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>Headline PCE</td><td class='num-cell'>5.1</td></tr><tr><td>Core PCE</td><td class='num-cell'>3.4</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://www.bea.gov/news/2026/gdp-advance-estimate-2nd-quarter-2026" target="_blank"
+         rel="noopener">bea.gov</a> &middot; 2026-07-30</p>
+      <p class="back"><a href="#ind-3">&larr; Reason
+         3</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <section class="chart" id="chart-4">
+      <h4>4. CPI, June (% y/y)</h4>
+      <p class="desc">CPI rose 3.5% year over year; energy rose 15.7% and gasoline rose 26.7%.</p>
+      <div class="plot"><svg viewBox="0 0 380 132" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t4" preserveAspectRatio="xMidYMid meet"><title id="t4">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="110.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="22.5" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">All items</text><text x="166.5" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">3.5</text><rect x="138.0" y="46.0" width="101.1" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Energy</text><text x="245.1" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">15.7</text><rect x="138.0" y="82.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="98.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Gasoline</text><text x="315.9" y="98.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">26.7</text><line x1="138.0" y1="110.0" x2="334.0" y2="110.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="124.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>All items</td><td class='num-cell'>3.5</td></tr><tr><td>Energy</td><td class='num-cell'>15.7</td></tr><tr><td>Gasoline</td><td class='num-cell'>26.7</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank"
+         rel="noopener">bls.gov</a> &middot; 2026-07-14</p>
+      <p class="back"><a href="#ind-4">&larr; Reason
+         4</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <section class="chart" id="chart-5">
+      <h4>5. Real hourly earnings (% y/y)</h4>
+      <p class="desc">Real hourly earnings were only 0.1% above a year ago; production-worker real hourly pay was down 0.1%.</p>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t5" preserveAspectRatio="xMidYMid meet"><title id="t5">Bar chart</title><line x1="236.0" y1="6.0" x2="236.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="236.0" y="10.0" width="76.6" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">All employees</text><text x="318.6" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">0.1</text><rect x="159.4" y="46.0" width="76.6" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Production workers</text><text x="153.4" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-0.1</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="236.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>All employees</td><td class='num-cell'>0.1</td></tr><tr><td>Production workers</td><td class='num-cell'>-0.1</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://www.bls.gov/news.release/realer.nr0.htm" target="_blank"
+         rel="noopener">bls.gov</a> &middot; 2026-07-14</p>
+      <p class="back"><a href="#ind-5">&larr; Reason
+         5</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <p class="panelend"><a href="#contents">&uarr; Back to contents</a></p>
+  </section>
+  <section class="panel" id="cg-labor">
+    <h3 class="grp">Labor market <span class="grpn">3 charts</span></h3>
+    <p class="grpnav">
+      <a class="home" href="#contents">&uarr; Contents</a>
+      <a href="#g-labor">&larr; Reasons 6&ndash;8</a>
+    </p>
+    
+    <section class="chart" id="chart-6">
+      <h4>6. Payrolls (thousands)</h4>
+      <p class="desc">June added only 57,000 jobs; April and May payrolls were revised down by 74,000 combined.</p>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t6" preserveAspectRatio="xMidYMid meet"><title id="t6">Bar chart</title><line x1="245.9" y1="6.0" x2="245.9" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="245.9" y="10.0" width="66.6" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">June job gain</text><text x="318.6" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">57</text><rect x="159.4" y="46.0" width="86.5" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Apr-May revision</text><text x="153.4" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-74</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="245.9" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>June job gain</td><td class='num-cell'>57</td></tr><tr><td>Apr-May revision</td><td class='num-cell'>-74</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank"
+         rel="noopener">bls.gov</a> &middot; 2026-07-02</p>
+      <p class="back"><a href="#ind-6">&larr; Reason
+         6</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <section class="chart" id="chart-7">
+      <h4>7. June labor-market ratios (%)</h4>
+      <p class="desc">Participation dropped 0.3 percentage point to 61.5%; the employment-population ratio slipped to 59.0%.</p>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t7" preserveAspectRatio="xMidYMid meet"><title id="t7">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Participation rate</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">61.5</text><rect x="138.0" y="46.0" width="164.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Employment-population</text><text x="308.9" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">59</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>Participation rate</td><td class='num-cell'>61.5</td></tr><tr><td>Employment-population</td><td class='num-cell'>59</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank"
+         rel="noopener">bls.gov</a> &middot; 2026-07-02</p>
+      <p class="back"><a href="#ind-7">&larr; Reason
+         7</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <section class="chart" id="chart-8">
+      <h4>8. Long-term unemployed (% of total unemployed)</h4>
+      <p class="desc">Long-term unemployment increased by 286,000 from a year earlier and reached 27.3% of total unemployment.</p>
+      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t8" preserveAspectRatio="xMidYMid meet"><title id="t8">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">June 2026</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">27.3</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>June 2026</td><td class='num-cell'>27.3</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank"
+         rel="noopener">bls.gov</a> &middot; 2026-07-02</p>
+      <p class="back"><a href="#ind-8">&larr; Reason
+         8</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <p class="panelend"><a href="#contents">&uarr; Back to contents</a></p>
+  </section>
+  <section class="panel" id="cg-sentiment">
+    <h3 class="grp">Confidence &amp; leading indicators <span class="grpn">2 charts</span></h3>
+    <p class="grpnav">
+      <a class="home" href="#contents">&uarr; Contents</a>
+      <a href="#g-sentiment">&larr; Reasons 9&ndash;10</a>
+    </p>
+    
+    <section class="chart" id="chart-9">
+      <h4>9. Consumer Confidence, July (index)</h4>
+      <p class="desc">The July Consumer Confidence Index fell to 90.8; the Expectations Index remained at 74.7.</p>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t9" preserveAspectRatio="xMidYMid meet"><title id="t9">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Headline index</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">90.8</text><rect x="138.0" y="46.0" width="141.4" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Expectations index</text><text x="285.4" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">74.7</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>Headline index</td><td class='num-cell'>90.8</td></tr><tr><td>Expectations index</td><td class='num-cell'>74.7</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://www.conference-board.org/topics/consumer-confidence" target="_blank"
+         rel="noopener">conference-board.org</a> &middot; 2026-07-28</p>
+      <p class="back"><a href="#ind-9">&larr; Reason
+         9</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <section class="chart" id="chart-10">
+      <h4>10. Leading Economic Index (%)</h4>
+      <p class="desc">The Leading Economic Index declined 0.2% in June and 0.3% over the first half of 2026.</p>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t10" preserveAspectRatio="xMidYMid meet"><title id="t10">Bar chart</title><line x1="312.6" y1="6.0" x2="312.6" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="210.5" y="10.0" width="102.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">June m/m</text><text x="204.5" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-0.2</text><rect x="159.4" y="46.0" width="153.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">H1 2026</text><text x="153.4" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-0.3</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="312.6" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>June m/m</td><td class='num-cell'>-0.2</td></tr><tr><td>H1 2026</td><td class='num-cell'>-0.3</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://www.conference-board.org/topics/us-leading-indicators" target="_blank"
+         rel="noopener">conference-board.org</a> &middot; 2026-07-20</p>
+      <p class="back"><a href="#ind-10">&larr; Reason
+         10</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <p class="panelend"><a href="#contents">&uarr; Back to contents</a></p>
+  </section>
+  <section class="panel" id="cg-household">
+    <h3 class="grp">Household finances <span class="grpn">3 charts</span></h3>
+    <p class="grpnav">
+      <a class="home" href="#contents">&uarr; Contents</a>
+      <a href="#g-household">&larr; Reasons 11&ndash;14</a>
+    </p>
+    
+    <section class="chart" id="chart-11">
+      <h4>11. Personal saving rate, June (%)</h4>
+      <p class="desc">The personal saving rate was only 2.7% in June.</p>
+      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t11" preserveAspectRatio="xMidYMid meet"><title id="t11">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Saving rate</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">2.7</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>Saving rate</td><td class='num-cell'>2.7</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://www.bea.gov/news/2026/personal-income-and-outlays-june-2026" target="_blank"
+         rel="noopener">bea.gov</a> &middot; 2026-07-30</p>
+      <p class="back"><a href="#ind-11">&larr; Reason
+         11</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <section class="chart" id="chart-12">
+      <h4>12. Consumer credit, May (%)</h4>
+      <p class="desc">Total consumer credit was unchanged in May; revolving credit fell at a 4.7% annual rate.</p>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t12" preserveAspectRatio="xMidYMid meet"><title id="t12">Bar chart</title><line x1="312.6" y1="6.0" x2="312.6" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="312.6" y="10.0" width="1.5" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Total credit m/m</text><text x="320.1" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">0</text><rect x="159.4" y="46.0" width="153.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Revolving, annual rate</text><text x="153.4" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-4.7</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="312.6" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>Total credit m/m</td><td class='num-cell'>0</td></tr><tr><td>Revolving, annual rate</td><td class='num-cell'>-4.7</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://www.federalreserve.gov/releases/g19/current/" target="_blank"
+         rel="noopener">federalreserve.gov</a> &middot; 2026-07-08</p>
+      <p class="back"><a href="#ind-12">&larr; Reason
+         12</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <section class="chart" id="chart-13">
+      <h4>14. Bankruptcy filings (% y/y)</h4>
+      <p class="desc">Total bankruptcy filings rose 12.2% year over year; business filings rose 16.9%.</p>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t13" preserveAspectRatio="xMidYMid meet"><title id="t13">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="124.1" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Total filings</text><text x="268.1" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">12.2</text><rect x="138.0" y="46.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Business filings</text><text x="315.9" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">16.9</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>Total filings</td><td class='num-cell'>12.2</td></tr><tr><td>Business filings</td><td class='num-cell'>16.9</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://www.uscourts.gov/data-news/judiciary-news/2026/07/28/bankruptcies-rise-122-percent" target="_blank"
+         rel="noopener">uscourts.gov</a> &middot; 2026-07-28</p>
+      <p class="back"><a href="#ind-14">&larr; Reason
+         14</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <p class="panelend"><a href="#contents">&uarr; Back to contents</a></p>
+  </section>
+  <section class="panel" id="cg-housing">
+    <h3 class="grp">Housing &amp; construction <span class="grpn">4 charts</span></h3>
+    <p class="grpnav">
+      <a class="home" href="#contents">&uarr; Contents</a>
+      <a href="#g-housing">&larr; Reasons 15&ndash;19</a>
+    </p>
+    
+    <section class="chart" id="chart-14">
+      <h4>15. 30-year fixed mortgage rate, Jul 30 (%)</h4>
+      <p class="desc">The 30-year fixed mortgage rate was 6.66% on July 30.</p>
+      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t14" preserveAspectRatio="xMidYMid meet"><title id="t14">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Mortgage rate</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">6.66</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>Mortgage rate</td><td class='num-cell'>6.66</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://fred.stlouisfed.org/series/MORTGAGE30US" target="_blank"
+         rel="noopener">fred.stlouisfed.org</a> &middot; 2026-07-30</p>
+      <p class="back"><a href="#ind-15">&larr; Reason
+         15</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <section class="chart" id="chart-15">
+      <h4>16. Pending home sales, June (%)</h4>
+      <p class="desc">Pending home sales fell 5.4% month over month in June and 0.3% year over year.</p>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t15" preserveAspectRatio="xMidYMid meet"><title id="t15">Bar chart</title><line x1="312.6" y1="6.0" x2="312.6" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="159.4" y="10.0" width="153.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Month over month</text><text x="153.4" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-5.4</text><rect x="304.1" y="46.0" width="8.5" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Year over year</text><text x="298.1" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-0.3</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="312.6" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>Month over month</td><td class='num-cell'>-5.4</td></tr><tr><td>Year over year</td><td class='num-cell'>-0.3</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://www.nar.realtor/newsroom/nar-pending-home-sales-report-shows-5-4-decrease-in-june" target="_blank"
+         rel="noopener">nar.realtor</a> &middot; 2026-07-16</p>
+      <p class="back"><a href="#ind-16">&larr; Reason
+         16</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <section class="chart" id="chart-16">
+      <h4>17. Building permits, June (%)</h4>
+      <p class="desc">Building permits fell 3.0% month over month and 2.3% year over year; single-family permits fell 2.4% month over month.</p>
+      <div class="plot"><svg viewBox="0 0 380 132" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t16" preserveAspectRatio="xMidYMid meet"><title id="t16">Bar chart</title><line x1="312.6" y1="6.0" x2="312.6" y2="110.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="159.4" y="10.0" width="153.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Total m/m</text><text x="153.4" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-3</text><rect x="195.2" y="46.0" width="117.4" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Total y/y</text><text x="189.2" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-2.3</text><rect x="190.1" y="82.0" width="122.5" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="98.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Single-family m/m</text><text x="184.1" y="98.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-2.4</text><line x1="138.0" y1="110.0" x2="334.0" y2="110.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="312.6" y="124.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>Total m/m</td><td class='num-cell'>-3</td></tr><tr><td>Total y/y</td><td class='num-cell'>-2.3</td></tr><tr><td>Single-family m/m</td><td class='num-cell'>-2.4</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://www.census.gov/construction/nrc/current/index.html" target="_blank"
+         rel="noopener">census.gov</a> &middot; 2026-07-17</p>
+      <p class="back"><a href="#ind-17">&larr; Reason
+         17</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <section class="chart" id="chart-17">
+      <h4>18. Construction spending, May (%)</h4>
+      <p class="desc">May construction spending was down 1.5% year over year and 2.7% year to date.</p>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t17" preserveAspectRatio="xMidYMid meet"><title id="t17">Bar chart</title><line x1="312.6" y1="6.0" x2="312.6" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="227.5" y="10.0" width="85.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Year over year</text><text x="221.5" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-1.5</text><rect x="159.4" y="46.0" width="153.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Year to date</text><text x="153.4" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-2.7</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="312.6" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>Year over year</td><td class='num-cell'>-1.5</td></tr><tr><td>Year to date</td><td class='num-cell'>-2.7</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://www.census.gov/construction/c30/current/index.html" target="_blank"
+         rel="noopener">census.gov</a> &middot; 2026-07-01</p>
+      <p class="back"><a href="#ind-18">&larr; Reason
+         18</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <p class="panelend"><a href="#contents">&uarr; Back to contents</a></p>
+  </section>
+  <section class="panel" id="cg-markets">
+    <h3 class="grp">Markets &amp; credit <span class="grpn">2 charts</span></h3>
+    <p class="grpnav">
+      <a class="home" href="#contents">&uarr; Contents</a>
+      <a href="#g-markets">&larr; Reasons 20&ndash;24</a>
+    </p>
+    
+    <section class="chart" id="chart-18">
+      <h4>22. Nonfinancial corporate debt growth (% annual rate)</h4>
+      <p class="desc">Nonfinancial corporate debt grew at an 8.8% annual rate in Q1, increasing rate and refinancing exposure.</p>
+      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t18" preserveAspectRatio="xMidYMid meet"><title id="t18">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q1 2026</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">8.8</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>Q1 2026</td><td class='num-cell'>8.8</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://www.federalreserve.gov/releases/z1/current/recent_developments.htm" target="_blank"
+         rel="noopener">federalreserve.gov</a> &middot; 2026-06-11</p>
+      <p class="back"><a href="#ind-22">&larr; Reason
+         22</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <section class="chart" id="chart-19">
+      <h4>24. Investment-grade option-adjusted spread, Jul 29 (pp)</h4>
+      <p class="desc">Investment-grade option-adjusted spreads were only 0.81 percentage point on July 29.</p>
+      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t19" preserveAspectRatio="xMidYMid meet"><title id="t19">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">IG spread</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">0.81</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <table class="data">
+        <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
+        <tbody><tr><td>IG spread</td><td class='num-cell'>0.81</td></tr></tbody>
+      </table>
+      <p class="src">Source: <a href="https://fred.stlouisfed.org/series/BAMLC0A0CM" target="_blank"
+         rel="noopener">fred.stlouisfed.org</a> &middot; 2026-07-29</p>
+      <p class="back"><a href="#ind-24">&larr; Reason
+         24</a> &middot; <a href="#contents">&uarr; Contents</a></p>
+    </section>
+    <p class="panelend"><a href="#contents">&uarr; Back to contents</a></p>
+  </section>
+
+<footer>
+  <p>Method: Latest available releases were used as of July 31, 2026. Several indicators also appear on the Expansion Case tab because the level may be healthy while the direction is deteriorating.</p>
+  <p>Companion file: <code>contraction-recession-case.xlsx</code></p>
+</footer>
+
+<a class="fab" href="#contents" aria-label="Return to table of contents">&uarr; Contents</a>
+
+</body>
+</html>
