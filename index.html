@@ -18,8 +18,8 @@
     --accent:#7fb2ee;      /* headings, rules */
     --accent-deep:#2a5c96; /* solid fills behind light text */
     --link:#8cc0ff;
-    --bar-pos:#5fa3e8;
-    --bar-neg:#f0776c;
+    --bar-pos:#4f82ad;
+    --bar-neg:#f2564d;
     --svg-grid:#38434f;
     --svg-label:#c9d4e2;
     --svg-axis:#8a97a9;
@@ -52,7 +52,7 @@
     :root {
       --bg:#fff; --surface:#fff; --panel:#f6f8fa; --line:#d5dbe3;
       --ink:#15304f; --mute:#4a5666; --accent:#1f3a5f; --accent-deep:#1f3a5f;
-      --link:#1a5fa8; --bar-pos:#1f3a5f; --bar-neg:#b3352e;
+      --link:#1a5fa8; --bar-pos:#4a6b8a; --bar-neg:#c0392b;
       --svg-grid:#c9d0d9; --svg-label:#2b3440; --svg-axis:#6b7684;
     }
     body { background:#fff; color:#15304f; }
@@ -110,6 +110,16 @@
     padding:14px 12px; line-height:1.2;
   }
   p.grpnav a.home { background:var(--accent-deep); color:#f2f7ff; border-color:var(--accent-deep); }
+  p.legend {
+    display:flex; flex-wrap:wrap; gap:10px 16px; margin:12px 0 2px;
+    font-size:13.5px; color:var(--mute);
+  }
+  .key { display:inline-flex; align-items:center; gap:7px; }
+  i.sw {
+    width:16px; height:10px; border-radius:2px; display:inline-block; flex:0 0 auto;
+  }
+  i.sw.neg { background:var(--bar-neg); }
+  i.sw.pos { background:var(--bar-pos); }
   p.panelend {
     margin:20px 0 0; padding-top:14px; border-top:1px solid var(--line);
   }
@@ -541,11 +551,15 @@
       <a class="home" href="#contents">&uarr; Contents</a>
       <a href="#g-growth">&larr; Reasons 1&ndash;5</a>
     </p>
+    <p class="legend">
+      <span class="key"><i class="sw neg"></i>the figure this row is indicting</span>
+      <span class="key"><i class="sw pos"></i>prior period or benchmark</span>
+    </p>
     
     <section class="chart" id="chart-1">
       <h4>1. Real GDP growth (% SAAR)</h4>
       <p class="desc">Q2 real GDP slowed to 1.5% annualized from 2.1% in Q1.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t1" preserveAspectRatio="xMidYMid meet"><title id="t1">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q1 2026</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">2.1</text><rect x="138.0" y="46.0" width="122.8" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q2 2026</text><text x="266.8" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">1.5</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t1" preserveAspectRatio="xMidYMid meet"><title id="t1">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q1 2026</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">2.1</text><rect x="138.0" y="46.0" width="122.8" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q2 2026</text><text x="266.8" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">1.5</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Q1 2026</td><td class='num-cell'>2.1</td></tr><tr><td>Q2 2026</td><td class='num-cell'>1.5</td></tr></tbody>
@@ -558,7 +572,7 @@
     <section class="chart" id="chart-2">
       <h4>2. Gross domestic purchases price index (% SAAR)</h4>
       <p class="desc">The gross domestic purchases price index rose 5.7% annualized in Q2 versus 3.6% in Q1.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t2" preserveAspectRatio="xMidYMid meet"><title id="t2">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="108.6" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q1 2026</text><text x="252.6" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">3.6</text><rect x="138.0" y="46.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q2 2026</text><text x="315.9" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">5.7</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t2" preserveAspectRatio="xMidYMid meet"><title id="t2">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="108.6" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q1 2026</text><text x="252.6" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">3.6</text><rect x="138.0" y="46.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q2 2026</text><text x="315.9" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">5.7</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Q1 2026</td><td class='num-cell'>3.6</td></tr><tr><td>Q2 2026</td><td class='num-cell'>5.7</td></tr></tbody>
@@ -571,7 +585,7 @@
     <section class="chart" id="chart-3">
       <h4>3. Q2 PCE inflation (% SAAR)</h4>
       <p class="desc">Q2 PCE prices rose 5.1% annualized; core PCE prices rose 3.4%.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t3" preserveAspectRatio="xMidYMid meet"><title id="t3">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Headline PCE</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">5.1</text><rect x="138.0" y="46.0" width="114.6" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Core PCE</text><text x="258.6" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">3.4</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t3" preserveAspectRatio="xMidYMid meet"><title id="t3">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Headline PCE</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">5.1</text><rect x="138.0" y="46.0" width="114.6" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Core PCE</text><text x="258.6" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">3.4</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Headline PCE</td><td class='num-cell'>5.1</td></tr><tr><td>Core PCE</td><td class='num-cell'>3.4</td></tr></tbody>
@@ -584,7 +598,7 @@
     <section class="chart" id="chart-4">
       <h4>4. CPI, June (% y/y)</h4>
       <p class="desc">CPI rose 3.5% year over year; energy rose 15.7% and gasoline rose 26.7%.</p>
-      <div class="plot"><svg viewBox="0 0 380 132" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t4" preserveAspectRatio="xMidYMid meet"><title id="t4">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="110.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="22.5" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">All items</text><text x="166.5" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">3.5</text><rect x="138.0" y="46.0" width="101.1" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Energy</text><text x="245.1" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">15.7</text><rect x="138.0" y="82.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="98.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Gasoline</text><text x="315.9" y="98.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">26.7</text><line x1="138.0" y1="110.0" x2="334.0" y2="110.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="124.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 132" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t4" preserveAspectRatio="xMidYMid meet"><title id="t4">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="110.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="22.5" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">All items</text><text x="166.5" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">3.5</text><rect x="138.0" y="46.0" width="101.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Energy</text><text x="245.1" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">15.7</text><rect x="138.0" y="82.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="98.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Gasoline</text><text x="315.9" y="98.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">26.7</text><line x1="138.0" y1="110.0" x2="334.0" y2="110.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="124.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>All items</td><td class='num-cell'>3.5</td></tr><tr><td>Energy</td><td class='num-cell'>15.7</td></tr><tr><td>Gasoline</td><td class='num-cell'>26.7</td></tr></tbody>
@@ -615,6 +629,10 @@
       <a class="home" href="#contents">&uarr; Contents</a>
       <a href="#g-labor">&larr; Reasons 6&ndash;8</a>
     </p>
+    <p class="legend">
+      <span class="key"><i class="sw neg"></i>the figure this row is indicting</span>
+      <span class="key"><i class="sw pos"></i>prior period or benchmark</span>
+    </p>
     
     <section class="chart" id="chart-6">
       <h4>6. Payrolls (thousands)</h4>
@@ -632,7 +650,7 @@
     <section class="chart" id="chart-7">
       <h4>7. June labor-market ratios (%)</h4>
       <p class="desc">Participation dropped 0.3 percentage point to 61.5%; the employment-population ratio slipped to 59.0%.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t7" preserveAspectRatio="xMidYMid meet"><title id="t7">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Participation rate</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">61.5</text><rect x="138.0" y="46.0" width="164.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Employment-population</text><text x="308.9" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">59</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t7" preserveAspectRatio="xMidYMid meet"><title id="t7">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Participation rate</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">61.5</text><rect x="138.0" y="46.0" width="164.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Employment-population</text><text x="308.9" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">59</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Participation rate</td><td class='num-cell'>61.5</td></tr><tr><td>Employment-population</td><td class='num-cell'>59</td></tr></tbody>
@@ -645,7 +663,7 @@
     <section class="chart" id="chart-8">
       <h4>8. Long-term unemployed (% of total unemployed)</h4>
       <p class="desc">Long-term unemployment increased by 286,000 from a year earlier and reached 27.3% of total unemployment.</p>
-      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t8" preserveAspectRatio="xMidYMid meet"><title id="t8">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">June 2026</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">27.3</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t8" preserveAspectRatio="xMidYMid meet"><title id="t8">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">June 2026</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">27.3</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>June 2026</td><td class='num-cell'>27.3</td></tr></tbody>
@@ -663,11 +681,15 @@
       <a class="home" href="#contents">&uarr; Contents</a>
       <a href="#g-sentiment">&larr; Reasons 9&ndash;10</a>
     </p>
+    <p class="legend">
+      <span class="key"><i class="sw neg"></i>the figure this row is indicting</span>
+      <span class="key"><i class="sw pos"></i>prior period or benchmark</span>
+    </p>
     
     <section class="chart" id="chart-9">
       <h4>9. Consumer Confidence, July (index)</h4>
       <p class="desc">The July Consumer Confidence Index fell to 90.8; the Expectations Index remained at 74.7.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t9" preserveAspectRatio="xMidYMid meet"><title id="t9">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Headline index</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">90.8</text><rect x="138.0" y="46.0" width="141.4" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Expectations index</text><text x="285.4" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">74.7</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t9" preserveAspectRatio="xMidYMid meet"><title id="t9">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Headline index</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">90.8</text><rect x="138.0" y="46.0" width="141.4" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Expectations index</text><text x="285.4" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">74.7</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Headline index</td><td class='num-cell'>90.8</td></tr><tr><td>Expectations index</td><td class='num-cell'>74.7</td></tr></tbody>
@@ -698,11 +720,15 @@
       <a class="home" href="#contents">&uarr; Contents</a>
       <a href="#g-household">&larr; Reasons 11&ndash;14</a>
     </p>
+    <p class="legend">
+      <span class="key"><i class="sw neg"></i>the figure this row is indicting</span>
+      <span class="key"><i class="sw pos"></i>prior period or benchmark</span>
+    </p>
     
     <section class="chart" id="chart-11">
       <h4>11. Personal saving rate, June (%)</h4>
       <p class="desc">The personal saving rate was only 2.7% in June.</p>
-      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t11" preserveAspectRatio="xMidYMid meet"><title id="t11">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Saving rate</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">2.7</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t11" preserveAspectRatio="xMidYMid meet"><title id="t11">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Saving rate</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">2.7</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Saving rate</td><td class='num-cell'>2.7</td></tr></tbody>
@@ -715,7 +741,7 @@
     <section class="chart" id="chart-12">
       <h4>12. Consumer credit, May (%)</h4>
       <p class="desc">Total consumer credit was unchanged in May; revolving credit fell at a 4.7% annual rate.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t12" preserveAspectRatio="xMidYMid meet"><title id="t12">Bar chart</title><line x1="312.6" y1="6.0" x2="312.6" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="312.6" y="10.0" width="1.5" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Total credit m/m</text><text x="320.1" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">0</text><rect x="159.4" y="46.0" width="153.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Revolving, annual rate</text><text x="153.4" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-4.7</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="312.6" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t12" preserveAspectRatio="xMidYMid meet"><title id="t12">Bar chart</title><line x1="312.6" y1="6.0" x2="312.6" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="312.6" y="10.0" width="1.5" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Total credit m/m</text><text x="320.1" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">0</text><rect x="159.4" y="46.0" width="153.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Revolving, annual rate</text><text x="153.4" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-4.7</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="312.6" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Total credit m/m</td><td class='num-cell'>0</td></tr><tr><td>Revolving, annual rate</td><td class='num-cell'>-4.7</td></tr></tbody>
@@ -728,7 +754,7 @@
     <section class="chart" id="chart-13">
       <h4>14. Bankruptcy filings (% y/y)</h4>
       <p class="desc">Total bankruptcy filings rose 12.2% year over year; business filings rose 16.9%.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t13" preserveAspectRatio="xMidYMid meet"><title id="t13">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="124.1" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Total filings</text><text x="268.1" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">12.2</text><rect x="138.0" y="46.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Business filings</text><text x="315.9" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">16.9</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t13" preserveAspectRatio="xMidYMid meet"><title id="t13">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="124.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Total filings</text><text x="268.1" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">12.2</text><rect x="138.0" y="46.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Business filings</text><text x="315.9" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">16.9</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Total filings</td><td class='num-cell'>12.2</td></tr><tr><td>Business filings</td><td class='num-cell'>16.9</td></tr></tbody>
@@ -746,11 +772,15 @@
       <a class="home" href="#contents">&uarr; Contents</a>
       <a href="#g-housing">&larr; Reasons 15&ndash;19</a>
     </p>
+    <p class="legend">
+      <span class="key"><i class="sw neg"></i>the figure this row is indicting</span>
+      <span class="key"><i class="sw pos"></i>prior period or benchmark</span>
+    </p>
     
     <section class="chart" id="chart-14">
       <h4>15. 30-year fixed mortgage rate, Jul 30 (%)</h4>
       <p class="desc">The 30-year fixed mortgage rate was 6.66% on July 30.</p>
-      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t14" preserveAspectRatio="xMidYMid meet"><title id="t14">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Mortgage rate</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">6.66</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t14" preserveAspectRatio="xMidYMid meet"><title id="t14">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Mortgage rate</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">6.66</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Mortgage rate</td><td class='num-cell'>6.66</td></tr></tbody>
@@ -807,11 +837,15 @@
       <a class="home" href="#contents">&uarr; Contents</a>
       <a href="#g-markets">&larr; Reasons 20&ndash;24</a>
     </p>
+    <p class="legend">
+      <span class="key"><i class="sw neg"></i>the figure this row is indicting</span>
+      <span class="key"><i class="sw pos"></i>prior period or benchmark</span>
+    </p>
     
     <section class="chart" id="chart-18">
       <h4>22. Nonfinancial corporate debt growth (% annual rate)</h4>
       <p class="desc">Nonfinancial corporate debt grew at an 8.8% annual rate in Q1, increasing rate and refinancing exposure.</p>
-      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t18" preserveAspectRatio="xMidYMid meet"><title id="t18">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q1 2026</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">8.8</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t18" preserveAspectRatio="xMidYMid meet"><title id="t18">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q1 2026</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">8.8</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Q1 2026</td><td class='num-cell'>8.8</td></tr></tbody>
@@ -824,7 +858,7 @@
     <section class="chart" id="chart-19">
       <h4>24. Investment-grade option-adjusted spread, Jul 29 (pp)</h4>
       <p class="desc">Investment-grade option-adjusted spreads were only 0.81 percentage point on July 29.</p>
-      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t19" preserveAspectRatio="xMidYMid meet"><title id="t19">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">IG spread</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">0.81</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t19" preserveAspectRatio="xMidYMid meet"><title id="t19">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">IG spread</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">0.81</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>IG spread</td><td class='num-cell'>0.81</td></tr></tbody>
