@@ -183,6 +183,7 @@
   .tileplot svg { width:100%; height:auto; display:block; }
   .tilequip { font-size:12.5px; line-height:1.35; color:var(--mute); }
   .striphint { font-size:13px; color:var(--mute); margin:2px 0 0; }
+  #review { margin-top:30px; padding-top:6px; border-top:1px solid var(--line); }
   p.reviewcta { margin:12px 0 0; }
   p.reviewcta a {
     display:block; text-align:center; font-size:15px; font-weight:700;
@@ -985,11 +986,9 @@
       &middot; <a href="#contents">&uarr; Back to contents</a></p>
   </section>
 
-  <section class="panel" id="review">
-    <h3 class="grp">Review all 19 charts <span class="grpn">swipe sideways</span></h3>
-    <p class="grpnav">
-      <a class="home" href="#contents">&uarr; Contents</a>
-    </p>
+  <section id="review">
+    <h3 class="grp">Review all 19 charts <span class="grpn">swipe sideways &rarr;</span></h3>
+    <p class="lede">Every chart in one strip, whichever section you have open.</p>
     <div class="strip" tabindex="0" role="region"
          aria-label="All nineteen charts, scrolls horizontally">
       <a class="tile" href="#chart-1">
@@ -1108,7 +1107,6 @@
       </a>
     </div>
     <p class="striphint">19 charts &middot; swipe to review, tap any one to open it in full</p>
-    <p class="panelend"><a href="#contents">&uarr; Back to contents</a></p>
   </section>
 
 <footer>
