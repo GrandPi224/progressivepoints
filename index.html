@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#10141a">
-<title>U.S. ECONOMY: 25 REASONS IT CONTRACTS (CONTRACTION CASE)</title>
+<title>U.S. ECONOMY: 25 REASONS IT CONTRACTS (AFFORDABILITY CASE)</title>
 <style>
   :root {
     color-scheme:dark;
@@ -15,14 +15,18 @@
     --line:#2b3542;
     --ink:#e4e9f0;         /* body text */
     --mute:#96a4b8;        /* secondary text */
-    --accent:#7fb2ee;      /* headings, rules */
+    --accent:#7fb2ee;      /* structural accents, borders, badges */
+    --heading:#7fb2ee;     /* heading text -- single knob */
     --accent-deep:#2a5c96; /* solid fills behind light text */
     --link:#8cc0ff;
+    --banner:#1e4470;      /* masthead fill, carries white at 9.9:1 */
     --bar-pos:#4f82ad;
     --bar-neg:#f2564d;
     --svg-grid:#38434f;
     --svg-label:#c9d4e2;
     --svg-axis:#8a97a9;
+    --quip:#f2564d;        /* spec #C00000, lifted for a dark ground */
+    --srcline:#93b4da;     /* spec #1F3864, lifted for a dark ground */
   }
   * { box-sizing:border-box; }
   html { -webkit-text-size-adjust:100%; scroll-behavior:auto; }
@@ -52,18 +56,26 @@
     :root {
       --bg:#fff; --surface:#fff; --panel:#f6f8fa; --line:#d5dbe3;
       --ink:#15304f; --mute:#4a5666; --accent:#1f3a5f; --accent-deep:#1f3a5f;
+      --heading:#1F3864;
       --link:#1a5fa8; --bar-pos:#4a6b8a; --bar-neg:#c0392b;
       --svg-grid:#c9d0d9; --svg-label:#2b3440; --svg-axis:#6b7684;
+      --quip:#C00000; --srcline:#1F3864;
     }
     body { background:#fff; color:#15304f; }
+    header.masthead { background:#fff !important; border:1px solid #d5dbe3 !important; }
+    header.masthead h1 { color:#1F3864 !important; }
+    header.masthead .sub { color:#4a5666 !important; }
   }
 
-  header { padding:26px 0 14px; border-bottom:3px solid var(--accent); }
-  h1 { font-size:22px; line-height:1.25; margin:0 0 8px; color:var(--accent); }
-  .sub { font-size:15px; color:var(--mute); margin:0; }
+  header.masthead {
+    background:var(--banner); border:1px solid #2d5a8a; border-radius:10px;
+    padding:20px 16px; margin:18px 0 4px;
+  }
+  h1 { font-size:22px; line-height:1.25; margin:0 0 10px; color:#ffffff; }
+  .sub { font-size:15px; color:#c9dcf2; margin:0; }
   h2 {
     font-size:15px; letter-spacing:.06em; text-transform:uppercase;
-    color:var(--accent); margin:26px 0 4px; padding-bottom:6px;
+    color:var(--heading); margin:26px 0 4px; padding-bottom:6px;
     border-bottom:1px solid var(--line);
   }
   .lede { font-size:15px; color:var(--mute); margin:10px 0 16px; }
@@ -85,7 +97,7 @@
   }
   a.catbtn:active { background:var(--panel); }
   .catname {
-    font-size:15px; font-weight:700; line-height:1.25; color:var(--accent);
+    font-size:15px; font-weight:700; line-height:1.25; color:var(--heading);
   }
   .catmeta { font-size:12.5px; line-height:1.3; color:var(--mute); }
   .catgrid a.catbtn:last-child { grid-column:1 / -1; }
@@ -95,7 +107,7 @@
   li.tocgrp { padding:12px 0; border-top:1px solid var(--line); }
   li.tocgrp:first-child { border-top:0; }
   a.tocg {
-    display:block; font-size:18px; font-weight:700; color:var(--accent);
+    display:block; font-size:18px; font-weight:700; color:var(--heading);
     text-decoration:none; line-height:1.3; padding:4px 0;
   }
   .toccount { display:block; font-size:13.5px; color:var(--mute); margin-top:1px; }
@@ -119,7 +131,7 @@
 
   /* ---- panel chrome ---- */
   h3.grp {
-    font-size:19px; color:var(--accent); margin:22px 0 2px;
+    font-size:19px; color:var(--heading); margin:22px 0 2px;
     padding:0 0 8px; border-bottom:2px solid var(--accent);
   }
   .grpn { font-size:13px; font-weight:400; color:var(--mute); }
@@ -176,7 +188,7 @@
   }
   .chart h4 {
     font-size:17px; line-height:1.3; margin:0 0 6px;
-    color:var(--accent); font-weight:700;
+    color:var(--heading); font-weight:700;
   }
   .desc { font-size:15px; margin:0 0 12px; }
   .plot { width:100%; }
@@ -220,9 +232,9 @@
 </head>
 <body>
 
-<header>
-  <h1>U.S. ECONOMY: 25 REASONS IT CONTRACTS (CONTRACTION CASE)</h1>
-  <p class="sub">Contraction-case evidence current through July 31, 2026. Companion tab: Expansion Case.</p>
+<header class="masthead">
+  <h1>U.S. ECONOMY: 25 REASONS IT CONTRACTS (AFFORDABILITY CASE)</h1>
+  <p class="sub">Affordability-case evidence current through July 31, 2026. Companion tab: Expansion Case.</p>
 </header>
 
 
@@ -310,7 +322,7 @@
           &middot; <span class="tocnone">no charts</span></span>
         <ul class="tocsub"><li><a href="#ind-25"><span class="tocnum">25</span><span>Federal deficits reduce policy flexibility</span></a></li></ul>
       </li></ol>
-    <p class="tocfoot">Interpretation: The contraction side identifies weakening trends and financial fragilities that could turn slow growth negative.</p>
+    <p class="tocfoot">Interpretation: The affordability side identifies weakening trends and financial fragilities that could turn slow growth negative.</p>
   </nav>
 
   <section class="panel" id="g-growth">
@@ -616,65 +628,65 @@
     <section class="chart" id="chart-1">
       <h4>1. Real GDP growth (% SAAR)</h4>
       <p class="desc">Q2 real GDP slowed to 1.5% annualized from 2.1% in Q1.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t1" preserveAspectRatio="xMidYMid meet"><title id="t1">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q1 2026</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">2.1</text><rect x="138.0" y="46.0" width="122.8" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q2 2026</text><text x="266.8" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">1.5</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 196" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t1" preserveAspectRatio="xMidYMid meet"><title id="t1">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q1 2026</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">2.1</text><rect x="138.0" y="46.0" width="122.8" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q2 2026</text><text x="266.8" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">1.5</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="110.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: Growth fell from 2.1% to 1.5% in one</text><text x="4" y="126.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">quarter — a 29% haircut.</text><text x="4" y="142.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Two more prints like that and the argument is</text><text x="4" y="158.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">over.</text><text x="4" y="178.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: Bureau of Economic Analysis</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Q1 2026</td><td class='num-cell'>2.1</td></tr><tr><td>Q2 2026</td><td class='num-cell'>1.5</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://www.bea.gov/news/2026/gdp-advance-estimate-2nd-quarter-2026" target="_blank"
-         rel="noopener">bea.gov</a> &middot; 2026-07-30</p>
+      <p class="src">2026-07-30 &middot; <a href="https://www.bea.gov/news/2026/gdp-advance-estimate-2nd-quarter-2026" target="_blank"
+         rel="noopener">open the release at bea.gov</a></p>
       <p class="back"><a href="#ind-1">&larr; Reason
          1</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
     <section class="chart" id="chart-2">
       <h4>2. Gross domestic purchases price index (% SAAR)</h4>
       <p class="desc">The gross domestic purchases price index rose 5.7% annualized in Q2 versus 3.6% in Q1.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t2" preserveAspectRatio="xMidYMid meet"><title id="t2">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="108.6" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q1 2026</text><text x="252.6" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">3.6</text><rect x="138.0" y="46.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q2 2026</text><text x="315.9" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">5.7</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 196" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t2" preserveAspectRatio="xMidYMid meet"><title id="t2">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="108.6" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q1 2026</text><text x="252.6" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">3.6</text><rect x="138.0" y="46.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q2 2026</text><text x="315.9" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">5.7</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="110.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: Domestic prices went the wrong way:</text><text x="4" y="126.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">3.6% in Q1, 5.7% in Q2.</text><text x="4" y="142.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">The economy slowed and got more expensive at the</text><text x="4" y="158.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">same time.</text><text x="4" y="178.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: Bureau of Economic Analysis</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Q1 2026</td><td class='num-cell'>3.6</td></tr><tr><td>Q2 2026</td><td class='num-cell'>5.7</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://www.bea.gov/news/2026/gdp-advance-estimate-2nd-quarter-2026" target="_blank"
-         rel="noopener">bea.gov</a> &middot; 2026-07-30</p>
+      <p class="src">2026-07-30 &middot; <a href="https://www.bea.gov/news/2026/gdp-advance-estimate-2nd-quarter-2026" target="_blank"
+         rel="noopener">open the release at bea.gov</a></p>
       <p class="back"><a href="#ind-2">&larr; Reason
          2</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
     <section class="chart" id="chart-3">
       <h4>3. Q2 PCE inflation (% SAAR)</h4>
       <p class="desc">Q2 PCE prices rose 5.1% annualized; core PCE prices rose 3.4%.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t3" preserveAspectRatio="xMidYMid meet"><title id="t3">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Headline PCE</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">5.1</text><rect x="138.0" y="46.0" width="114.6" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Core PCE</text><text x="258.6" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">3.4</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 196" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t3" preserveAspectRatio="xMidYMid meet"><title id="t3">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Headline PCE</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">5.1</text><rect x="138.0" y="46.0" width="114.6" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Core PCE</text><text x="258.6" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">3.4</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="110.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: Headline PCE 5.1%, core 3.4% — 2.6x and</text><text x="4" y="126.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">1.7x the target.</text><text x="4" y="142.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Core says the fire is banked. Headline says it&#x27;s</text><text x="4" y="158.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">still burning.</text><text x="4" y="178.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: Bureau of Economic Analysis</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Headline PCE</td><td class='num-cell'>5.1</td></tr><tr><td>Core PCE</td><td class='num-cell'>3.4</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://www.bea.gov/news/2026/gdp-advance-estimate-2nd-quarter-2026" target="_blank"
-         rel="noopener">bea.gov</a> &middot; 2026-07-30</p>
+      <p class="src">2026-07-30 &middot; <a href="https://www.bea.gov/news/2026/gdp-advance-estimate-2nd-quarter-2026" target="_blank"
+         rel="noopener">open the release at bea.gov</a></p>
       <p class="back"><a href="#ind-3">&larr; Reason
          3</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
     <section class="chart" id="chart-4">
       <h4>4. CPI, June (% y/y)</h4>
       <p class="desc">CPI rose 3.5% year over year; energy rose 15.7% and gasoline rose 26.7%.</p>
-      <div class="plot"><svg viewBox="0 0 380 132" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t4" preserveAspectRatio="xMidYMid meet"><title id="t4">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="110.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="22.5" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">All items</text><text x="166.5" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">3.5</text><rect x="138.0" y="46.0" width="101.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Energy</text><text x="245.1" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">15.7</text><rect x="138.0" y="82.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="98.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Gasoline</text><text x="315.9" y="98.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">26.7</text><line x1="138.0" y1="110.0" x2="334.0" y2="110.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="124.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 232" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t4" preserveAspectRatio="xMidYMid meet"><title id="t4">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="110.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="22.5" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">All items</text><text x="166.5" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">3.5</text><rect x="138.0" y="46.0" width="101.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Energy</text><text x="245.1" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">15.7</text><rect x="138.0" y="82.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="98.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Gasoline</text><text x="315.9" y="98.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">26.7</text><line x1="138.0" y1="110.0" x2="334.0" y2="110.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="124.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="146.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: All items up 3.5%; gasoline up 26.7% —</text><text x="4" y="162.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">7.6x the headline.</text><text x="4" y="178.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Households don&#x27;t buy “all items.” They buy</text><text x="4" y="194.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">gasoline.</text><text x="4" y="214.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: Bureau of Labor Statistics</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>All items</td><td class='num-cell'>3.5</td></tr><tr><td>Energy</td><td class='num-cell'>15.7</td></tr><tr><td>Gasoline</td><td class='num-cell'>26.7</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank"
-         rel="noopener">bls.gov</a> &middot; 2026-07-14</p>
+      <p class="src">2026-07-14 &middot; <a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank"
+         rel="noopener">open the release at bls.gov</a></p>
       <p class="back"><a href="#ind-4">&larr; Reason
          4</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
     <section class="chart" id="chart-5">
       <h4>5. Real hourly earnings (% y/y)</h4>
       <p class="desc">Real hourly earnings were only 0.1% above a year ago; production-worker real hourly pay was down 0.1%.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t5" preserveAspectRatio="xMidYMid meet"><title id="t5">Bar chart</title><line x1="236.0" y1="6.0" x2="236.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="236.0" y="10.0" width="76.6" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">All employees</text><text x="318.6" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">0.1</text><rect x="159.4" y="46.0" width="76.6" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Production workers</text><text x="153.4" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-0.1</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="236.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t5" preserveAspectRatio="xMidYMid meet"><title id="t5">Bar chart</title><line x1="236.0" y1="6.0" x2="236.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="236.0" y="10.0" width="76.6" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">All employees</text><text x="318.6" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">0.1</text><rect x="159.4" y="46.0" width="76.6" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Production workers</text><text x="153.4" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-0.1</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="236.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="110.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: All employees +0.1%, production workers</text><text x="4" y="126.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">−0.1%. That&#x27;s the raise.</text><text x="4" y="142.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">A year of work for a rounding error, or less.</text><text x="4" y="162.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: Bureau of Labor Statistics</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>All employees</td><td class='num-cell'>0.1</td></tr><tr><td>Production workers</td><td class='num-cell'>-0.1</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://www.bls.gov/news.release/realer.nr0.htm" target="_blank"
-         rel="noopener">bls.gov</a> &middot; 2026-07-14</p>
+      <p class="src">2026-07-14 &middot; <a href="https://www.bls.gov/news.release/realer.nr0.htm" target="_blank"
+         rel="noopener">open the release at bls.gov</a></p>
       <p class="back"><a href="#ind-5">&larr; Reason
          5</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
@@ -694,39 +706,39 @@
     <section class="chart" id="chart-6">
       <h4>6. Payrolls (thousands)</h4>
       <p class="desc">June added only 57,000 jobs; April and May payrolls were revised down by 74,000 combined.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t6" preserveAspectRatio="xMidYMid meet"><title id="t6">Bar chart</title><line x1="245.9" y1="6.0" x2="245.9" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="245.9" y="10.0" width="66.6" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">June job gain</text><text x="318.6" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">57</text><rect x="159.4" y="46.0" width="86.5" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Apr-May revision</text><text x="153.4" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-74</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="245.9" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 196" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t6" preserveAspectRatio="xMidYMid meet"><title id="t6">Bar chart</title><line x1="245.9" y1="6.0" x2="245.9" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="245.9" y="10.0" width="66.6" height="24.0" fill="var(--bar-pos)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">June job gain</text><text x="318.6" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-pos)">57</text><rect x="159.4" y="46.0" width="86.5" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Apr-May revision</text><text x="153.4" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-74</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="245.9" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="110.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: June added 57k. Revisions erased 74k.</text><text x="4" y="126.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Net: −17k.</text><text x="4" y="142.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">When revisions outrun the print, the trend is</text><text x="4" y="158.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">worse than reported.</text><text x="4" y="178.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: Bureau of Labor Statistics</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>June job gain</td><td class='num-cell'>57</td></tr><tr><td>Apr-May revision</td><td class='num-cell'>-74</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank"
-         rel="noopener">bls.gov</a> &middot; 2026-07-02</p>
+      <p class="src">2026-07-02 &middot; <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank"
+         rel="noopener">open the release at bls.gov</a></p>
       <p class="back"><a href="#ind-6">&larr; Reason
          6</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
     <section class="chart" id="chart-7">
       <h4>7. June labor-market ratios (%)</h4>
       <p class="desc">Participation dropped 0.3 percentage point to 61.5%; the employment-population ratio slipped to 59.0%.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t7" preserveAspectRatio="xMidYMid meet"><title id="t7">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Participation rate</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">61.5</text><rect x="138.0" y="46.0" width="164.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Employment-population</text><text x="308.9" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">59</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 196" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t7" preserveAspectRatio="xMidYMid meet"><title id="t7">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Participation rate</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">61.5</text><rect x="138.0" y="46.0" width="164.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Employment-population</text><text x="308.9" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">59</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="110.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: Participation 61.5%,</text><text x="4" y="126.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">employment-population 59.0%, both slipping.</text><text x="4" y="142.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">A falling jobless rate means less when people stop</text><text x="4" y="158.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">looking.</text><text x="4" y="178.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: Bureau of Labor Statistics</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Participation rate</td><td class='num-cell'>61.5</td></tr><tr><td>Employment-population</td><td class='num-cell'>59</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank"
-         rel="noopener">bls.gov</a> &middot; 2026-07-02</p>
+      <p class="src">2026-07-02 &middot; <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank"
+         rel="noopener">open the release at bls.gov</a></p>
       <p class="back"><a href="#ind-7">&larr; Reason
          7</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
     <section class="chart" id="chart-8">
       <h4>8. Long-term unemployed (% of total unemployed)</h4>
       <p class="desc">Long-term unemployment increased by 286,000 from a year earlier and reached 27.3% of total unemployment.</p>
-      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t8" preserveAspectRatio="xMidYMid meet"><title id="t8">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">June 2026</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">27.3</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t8" preserveAspectRatio="xMidYMid meet"><title id="t8">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">June 2026</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">27.3</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="74.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: Long-term unemployment is 27.3% of the</text><text x="4" y="90.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">total, up 286,000 in a year.</text><text x="4" y="106.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">More than one in four jobless workers is now a</text><text x="4" y="122.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">long spell.</text><text x="4" y="142.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: Bureau of Labor Statistics</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>June 2026</td><td class='num-cell'>27.3</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank"
-         rel="noopener">bls.gov</a> &middot; 2026-07-02</p>
+      <p class="src">2026-07-02 &middot; <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank"
+         rel="noopener">open the release at bls.gov</a></p>
       <p class="back"><a href="#ind-8">&larr; Reason
          8</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
@@ -746,26 +758,26 @@
     <section class="chart" id="chart-9">
       <h4>9. Consumer Confidence, July (index)</h4>
       <p class="desc">The July Consumer Confidence Index fell to 90.8; the Expectations Index remained at 74.7.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t9" preserveAspectRatio="xMidYMid meet"><title id="t9">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Headline index</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">90.8</text><rect x="138.0" y="46.0" width="141.4" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Expectations index</text><text x="285.4" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">74.7</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 196" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t9" preserveAspectRatio="xMidYMid meet"><title id="t9">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Headline index</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">90.8</text><rect x="138.0" y="46.0" width="141.4" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Expectations index</text><text x="285.4" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">74.7</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="110.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: Confidence 90.8, expectations 74.7 — a</text><text x="4" y="126.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">16-point gap, all downside.</text><text x="4" y="142.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Consumers rate tomorrow worse than today, and</text><text x="4" y="158.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">spend accordingly.</text><text x="4" y="178.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: The Conference Board</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Headline index</td><td class='num-cell'>90.8</td></tr><tr><td>Expectations index</td><td class='num-cell'>74.7</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://www.conference-board.org/topics/consumer-confidence" target="_blank"
-         rel="noopener">conference-board.org</a> &middot; 2026-07-28</p>
+      <p class="src">2026-07-28 &middot; <a href="https://www.conference-board.org/topics/consumer-confidence" target="_blank"
+         rel="noopener">open the release at conference-board.org</a></p>
       <p class="back"><a href="#ind-9">&larr; Reason
          9</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
     <section class="chart" id="chart-10">
       <h4>10. Leading Economic Index (%)</h4>
       <p class="desc">The Leading Economic Index declined 0.2% in June and 0.3% over the first half of 2026.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t10" preserveAspectRatio="xMidYMid meet"><title id="t10">Bar chart</title><line x1="312.6" y1="6.0" x2="312.6" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="210.5" y="10.0" width="102.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">June m/m</text><text x="204.5" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-0.2</text><rect x="159.4" y="46.0" width="153.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">H1 2026</text><text x="153.4" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-0.3</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="312.6" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 196" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t10" preserveAspectRatio="xMidYMid meet"><title id="t10">Bar chart</title><line x1="312.6" y1="6.0" x2="312.6" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="210.5" y="10.0" width="102.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">June m/m</text><text x="204.5" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-0.2</text><rect x="159.4" y="46.0" width="153.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">H1 2026</text><text x="153.4" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-0.3</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="312.6" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="110.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: The LEI fell 0.2% in June and 0.3%</text><text x="4" y="126.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">across the first half.</text><text x="4" y="142.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Six months pointing one way is a signal, not</text><text x="4" y="158.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">noise.</text><text x="4" y="178.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: The Conference Board</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>June m/m</td><td class='num-cell'>-0.2</td></tr><tr><td>H1 2026</td><td class='num-cell'>-0.3</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://www.conference-board.org/topics/us-leading-indicators" target="_blank"
-         rel="noopener">conference-board.org</a> &middot; 2026-07-20</p>
+      <p class="src">2026-07-20 &middot; <a href="https://www.conference-board.org/topics/us-leading-indicators" target="_blank"
+         rel="noopener">open the release at conference-board.org</a></p>
       <p class="back"><a href="#ind-10">&larr; Reason
          10</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
@@ -785,39 +797,39 @@
     <section class="chart" id="chart-11">
       <h4>11. Personal saving rate, June (%)</h4>
       <p class="desc">The personal saving rate was only 2.7% in June.</p>
-      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t11" preserveAspectRatio="xMidYMid meet"><title id="t11">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Saving rate</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">2.7</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t11" preserveAspectRatio="xMidYMid meet"><title id="t11">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Saving rate</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">2.7</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="74.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: Households saved 2.7 cents of every</text><text x="4" y="90.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">dollar in June.</text><text x="4" y="106.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">That&#x27;s the whole cushion between a bad month and</text><text x="4" y="122.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">the credit card.</text><text x="4" y="142.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: Bureau of Economic Analysis</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Saving rate</td><td class='num-cell'>2.7</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://www.bea.gov/news/2026/personal-income-and-outlays-june-2026" target="_blank"
-         rel="noopener">bea.gov</a> &middot; 2026-07-30</p>
+      <p class="src">2026-07-30 &middot; <a href="https://www.bea.gov/news/2026/personal-income-and-outlays-june-2026" target="_blank"
+         rel="noopener">open the release at bea.gov</a></p>
       <p class="back"><a href="#ind-11">&larr; Reason
          11</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
     <section class="chart" id="chart-12">
       <h4>12. Consumer credit, May (%)</h4>
       <p class="desc">Total consumer credit was unchanged in May; revolving credit fell at a 4.7% annual rate.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t12" preserveAspectRatio="xMidYMid meet"><title id="t12">Bar chart</title><line x1="312.6" y1="6.0" x2="312.6" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="312.6" y="10.0" width="1.5" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Total credit m/m</text><text x="320.1" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">0</text><rect x="159.4" y="46.0" width="153.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Revolving, annual rate</text><text x="153.4" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-4.7</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="312.6" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 196" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t12" preserveAspectRatio="xMidYMid meet"><title id="t12">Bar chart</title><line x1="312.6" y1="6.0" x2="312.6" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="312.6" y="10.0" width="1.5" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Total credit m/m</text><text x="320.1" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">0</text><rect x="159.4" y="46.0" width="153.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Revolving, annual rate</text><text x="153.4" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-4.7</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="312.6" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="110.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: Total credit flat; revolving</text><text x="4" y="126.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">contracting at a 4.7% annual rate.</text><text x="4" y="142.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Either lenders pulled back or borrowers tapped</text><text x="4" y="158.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">out. Neither is good.</text><text x="4" y="178.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: Federal Reserve</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Total credit m/m</td><td class='num-cell'>0</td></tr><tr><td>Revolving, annual rate</td><td class='num-cell'>-4.7</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://www.federalreserve.gov/releases/g19/current/" target="_blank"
-         rel="noopener">federalreserve.gov</a> &middot; 2026-07-08</p>
+      <p class="src">2026-07-08 &middot; <a href="https://www.federalreserve.gov/releases/g19/current/" target="_blank"
+         rel="noopener">open the release at federalreserve.gov</a></p>
       <p class="back"><a href="#ind-12">&larr; Reason
          12</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
     <section class="chart" id="chart-13">
       <h4>14. Bankruptcy filings (% y/y)</h4>
       <p class="desc">Total bankruptcy filings rose 12.2% year over year; business filings rose 16.9%.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t13" preserveAspectRatio="xMidYMid meet"><title id="t13">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="124.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Total filings</text><text x="268.1" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">12.2</text><rect x="138.0" y="46.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Business filings</text><text x="315.9" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">16.9</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 196" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t13" preserveAspectRatio="xMidYMid meet"><title id="t13">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="124.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Total filings</text><text x="268.1" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">12.2</text><rect x="138.0" y="46.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Business filings</text><text x="315.9" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">16.9</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="110.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: Total filings +12.2% y/y, business</text><text x="4" y="126.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">filings +16.9%.</text><text x="4" y="142.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Business failures are outrunning the total. That&#x27;s</text><text x="4" y="158.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">where recessions start.</text><text x="4" y="178.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: U.S. Courts</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Total filings</td><td class='num-cell'>12.2</td></tr><tr><td>Business filings</td><td class='num-cell'>16.9</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://www.uscourts.gov/data-news/judiciary-news/2026/07/28/bankruptcies-rise-122-percent" target="_blank"
-         rel="noopener">uscourts.gov</a> &middot; 2026-07-28</p>
+      <p class="src">2026-07-28 &middot; <a href="https://www.uscourts.gov/data-news/judiciary-news/2026/07/28/bankruptcies-rise-122-percent" target="_blank"
+         rel="noopener">open the release at uscourts.gov</a></p>
       <p class="back"><a href="#ind-14">&larr; Reason
          14</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
@@ -837,52 +849,52 @@
     <section class="chart" id="chart-14">
       <h4>15. 30-year fixed mortgage rate, Jul 30 (%)</h4>
       <p class="desc">The 30-year fixed mortgage rate was 6.66% on July 30.</p>
-      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t14" preserveAspectRatio="xMidYMid meet"><title id="t14">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Mortgage rate</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">6.66</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 144" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t14" preserveAspectRatio="xMidYMid meet"><title id="t14">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Mortgage rate</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">6.66</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="74.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: The 30-year fixed closed July at 6.66%.</text><text x="4" y="90.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Housing doesn&#x27;t recover until that number starts</text><text x="4" y="106.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">with a 5.</text><text x="4" y="126.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: FRED, St. Louis Fed</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Mortgage rate</td><td class='num-cell'>6.66</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://fred.stlouisfed.org/series/MORTGAGE30US" target="_blank"
-         rel="noopener">fred.stlouisfed.org</a> &middot; 2026-07-30</p>
+      <p class="src">2026-07-30 &middot; <a href="https://fred.stlouisfed.org/series/MORTGAGE30US" target="_blank"
+         rel="noopener">open the release at fred.stlouisfed.org</a></p>
       <p class="back"><a href="#ind-15">&larr; Reason
          15</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
     <section class="chart" id="chart-15">
       <h4>16. Pending home sales, June (%)</h4>
       <p class="desc">Pending home sales fell 5.4% month over month in June and 0.3% year over year.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t15" preserveAspectRatio="xMidYMid meet"><title id="t15">Bar chart</title><line x1="312.6" y1="6.0" x2="312.6" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="159.4" y="10.0" width="153.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Month over month</text><text x="153.4" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-5.4</text><rect x="304.1" y="46.0" width="8.5" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Year over year</text><text x="298.1" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-0.3</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="312.6" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t15" preserveAspectRatio="xMidYMid meet"><title id="t15">Bar chart</title><line x1="312.6" y1="6.0" x2="312.6" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="159.4" y="10.0" width="153.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Month over month</text><text x="153.4" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-5.4</text><rect x="304.1" y="46.0" width="8.5" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Year over year</text><text x="298.1" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-0.3</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="312.6" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="110.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: Down 5.4% in one month against 0.3% on</text><text x="4" y="126.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">the year — the break is fresh.</text><text x="4" y="142.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Pending sales lead closings by about two months.</text><text x="4" y="162.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: National Association of Realtors</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Month over month</td><td class='num-cell'>-5.4</td></tr><tr><td>Year over year</td><td class='num-cell'>-0.3</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://www.nar.realtor/newsroom/nar-pending-home-sales-report-shows-5-4-decrease-in-june" target="_blank"
-         rel="noopener">nar.realtor</a> &middot; 2026-07-16</p>
+      <p class="src">2026-07-16 &middot; <a href="https://www.nar.realtor/newsroom/nar-pending-home-sales-report-shows-5-4-decrease-in-june" target="_blank"
+         rel="noopener">open the release at nar.realtor</a></p>
       <p class="back"><a href="#ind-16">&larr; Reason
          16</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
     <section class="chart" id="chart-16">
       <h4>17. Building permits, June (%)</h4>
       <p class="desc">Building permits fell 3.0% month over month and 2.3% year over year; single-family permits fell 2.4% month over month.</p>
-      <div class="plot"><svg viewBox="0 0 380 132" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t16" preserveAspectRatio="xMidYMid meet"><title id="t16">Bar chart</title><line x1="312.6" y1="6.0" x2="312.6" y2="110.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="159.4" y="10.0" width="153.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Total m/m</text><text x="153.4" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-3</text><rect x="195.2" y="46.0" width="117.4" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Total y/y</text><text x="189.2" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-2.3</text><rect x="190.1" y="82.0" width="122.5" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="98.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Single-family m/m</text><text x="184.1" y="98.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-2.4</text><line x1="138.0" y1="110.0" x2="334.0" y2="110.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="312.6" y="124.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 232" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t16" preserveAspectRatio="xMidYMid meet"><title id="t16">Bar chart</title><line x1="312.6" y1="6.0" x2="312.6" y2="110.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="159.4" y="10.0" width="153.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Total m/m</text><text x="153.4" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-3</text><rect x="195.2" y="46.0" width="117.4" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Total y/y</text><text x="189.2" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-2.3</text><rect x="190.1" y="82.0" width="122.5" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="98.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Single-family m/m</text><text x="184.1" y="98.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-2.4</text><line x1="138.0" y1="110.0" x2="334.0" y2="110.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="312.6" y="124.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="146.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: Permits down 3.0% m/m, 2.3% y/y,</text><text x="4" y="162.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">single-family down 2.4%.</text><text x="4" y="178.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">A permit is a promise to build. Builders are</text><text x="4" y="194.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">making fewer.</text><text x="4" y="214.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: U.S. Census Bureau</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Total m/m</td><td class='num-cell'>-3</td></tr><tr><td>Total y/y</td><td class='num-cell'>-2.3</td></tr><tr><td>Single-family m/m</td><td class='num-cell'>-2.4</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://www.census.gov/construction/nrc/current/index.html" target="_blank"
-         rel="noopener">census.gov</a> &middot; 2026-07-17</p>
+      <p class="src">2026-07-17 &middot; <a href="https://www.census.gov/construction/nrc/current/index.html" target="_blank"
+         rel="noopener">open the release at census.gov</a></p>
       <p class="back"><a href="#ind-17">&larr; Reason
          17</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
     <section class="chart" id="chart-17">
       <h4>18. Construction spending, May (%)</h4>
       <p class="desc">May construction spending was down 1.5% year over year and 2.7% year to date.</p>
-      <div class="plot"><svg viewBox="0 0 380 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t17" preserveAspectRatio="xMidYMid meet"><title id="t17">Bar chart</title><line x1="312.6" y1="6.0" x2="312.6" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="227.5" y="10.0" width="85.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Year over year</text><text x="221.5" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-1.5</text><rect x="159.4" y="46.0" width="153.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Year to date</text><text x="153.4" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-2.7</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="312.6" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 196" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t17" preserveAspectRatio="xMidYMid meet"><title id="t17">Bar chart</title><line x1="312.6" y1="6.0" x2="312.6" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="227.5" y="10.0" width="85.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Year over year</text><text x="221.5" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-1.5</text><rect x="159.4" y="46.0" width="153.1" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Year to date</text><text x="153.4" y="62.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">-2.7</text><line x1="138.0" y1="74.0" x2="334.0" y2="74.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="312.6" y="88.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="110.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: Spending down 1.5% y/y and 2.7% year to</text><text x="4" y="126.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">date.</text><text x="4" y="142.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Year-to-date worse than year-over-year means it&#x27;s</text><text x="4" y="158.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">still deteriorating.</text><text x="4" y="178.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: U.S. Census Bureau</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Year over year</td><td class='num-cell'>-1.5</td></tr><tr><td>Year to date</td><td class='num-cell'>-2.7</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://www.census.gov/construction/c30/current/index.html" target="_blank"
-         rel="noopener">census.gov</a> &middot; 2026-07-01</p>
+      <p class="src">2026-07-01 &middot; <a href="https://www.census.gov/construction/c30/current/index.html" target="_blank"
+         rel="noopener">open the release at census.gov</a></p>
       <p class="back"><a href="#ind-18">&larr; Reason
          18</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
@@ -902,26 +914,26 @@
     <section class="chart" id="chart-18">
       <h4>22. Nonfinancial corporate debt growth (% annual rate)</h4>
       <p class="desc">Nonfinancial corporate debt grew at an 8.8% annual rate in Q1, increasing rate and refinancing exposure.</p>
-      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t18" preserveAspectRatio="xMidYMid meet"><title id="t18">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q1 2026</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">8.8</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t18" preserveAspectRatio="xMidYMid meet"><title id="t18">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">Q1 2026</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">8.8</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="74.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: Nonfinancial corporate debt grew at an</text><text x="4" y="90.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">8.8% annual rate in Q1.</text><text x="4" y="106.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Borrowing that fast into a slowdown is a</text><text x="4" y="122.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">refinancing problem in waiting.</text><text x="4" y="142.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: Federal Reserve</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>Q1 2026</td><td class='num-cell'>8.8</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://www.federalreserve.gov/releases/z1/current/recent_developments.htm" target="_blank"
-         rel="noopener">federalreserve.gov</a> &middot; 2026-06-11</p>
+      <p class="src">2026-06-11 &middot; <a href="https://www.federalreserve.gov/releases/z1/current/recent_developments.htm" target="_blank"
+         rel="noopener">open the release at federalreserve.gov</a></p>
       <p class="back"><a href="#ind-22">&larr; Reason
          22</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
     <section class="chart" id="chart-19">
       <h4>24. Investment-grade option-adjusted spread, Jul 29 (pp)</h4>
       <p class="desc">Investment-grade option-adjusted spreads were only 0.81 percentage point on July 29.</p>
-      <div class="plot"><svg viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t19" preserveAspectRatio="xMidYMid meet"><title id="t19">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">IG spread</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">0.81</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text></svg></div>
+      <div class="plot"><svg viewBox="0 0 380 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t19" preserveAspectRatio="xMidYMid meet"><title id="t19">Bar chart</title><line x1="138.0" y1="6.0" x2="138.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><rect x="138.0" y="10.0" width="171.9" height="24.0" fill="var(--bar-neg)" rx="2"/><text x="128.0" y="26.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="var(--svg-label)">IG spread</text><text x="315.9" y="26.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="var(--bar-neg)">0.81</text><line x1="138.0" y1="38.0" x2="334.0" y2="38.0" stroke="var(--svg-grid)" stroke-width="1"/><text x="138.0" y="52.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" fill="var(--svg-axis)">0</text><text x="4" y="74.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">Chip Quip: Investment-grade spreads at 0.81 points</text><text x="4" y="90.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">— priced for perfection.</text><text x="4" y="106.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">There&#x27;s no room in that number for anything to go</text><text x="4" y="122.0" font-family="Arial,Helvetica,sans-serif" font-size="12.5" font-style="italic" fill="var(--quip)">wrong.</text><text x="4" y="142.0" font-family="Arial,Helvetica,sans-serif" font-size="11" font-style="italic" fill="var(--srcline)">Source: FRED, St. Louis Fed</text></svg></div>
       <table class="data">
         <thead><tr><th>Category</th><th class="num-cell">Value</th></tr></thead>
         <tbody><tr><td>IG spread</td><td class='num-cell'>0.81</td></tr></tbody>
       </table>
-      <p class="src">Source: <a href="https://fred.stlouisfed.org/series/BAMLC0A0CM" target="_blank"
-         rel="noopener">fred.stlouisfed.org</a> &middot; 2026-07-29</p>
+      <p class="src">2026-07-29 &middot; <a href="https://fred.stlouisfed.org/series/BAMLC0A0CM" target="_blank"
+         rel="noopener">open the release at fred.stlouisfed.org</a></p>
       <p class="back"><a href="#ind-24">&larr; Reason
          24</a> &middot; <a href="#contents">&uarr; Contents</a></p>
     </section>
@@ -930,7 +942,7 @@
 
 <footer>
   <p>Method: Latest available releases were used as of July 31, 2026. Several indicators also appear on the Expansion Case tab because the level may be healthy while the direction is deteriorating.</p>
-  <p>Companion file: <code>contraction-recession-case.xlsx</code></p>
+  <p>Companion file: <code>affordability-recession-case.xlsx</code></p>
 </footer>
 
 <a class="fab" href="#contents" aria-label="Return to table of contents">&uarr; Contents</a>
