@@ -71,6 +71,26 @@
 
   /* ---- contents ---- */
   #contents { padding:2px 0 0; }
+  /* ---- category buttons ---- */
+  .catgrid {
+    display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px; margin:16px 0 6px;
+  }
+  a.catbtn {
+    display:flex; flex-direction:column; justify-content:center; gap:4px;
+    min-height:66px; padding:13px 12px;
+    background:var(--surface); border:1px solid var(--line);
+    border-left:4px solid var(--accent); border-radius:8px;
+    text-decoration:none;
+  }
+  a.catbtn:active { background:var(--panel); }
+  .catname {
+    font-size:15px; font-weight:700; line-height:1.25; color:var(--accent);
+  }
+  .catmeta { font-size:12.5px; line-height:1.3; color:var(--mute); }
+  .catgrid a.catbtn:last-child { grid-column:1 / -1; }
+  h2.allhead { margin-top:24px; }
+
   ol.tocroot { list-style:none; margin:0; padding:0; }
   li.tocgrp { padding:12px 0; border-top:1px solid var(--line); }
   li.tocgrp:first-child { border-top:0; }
@@ -210,6 +230,43 @@
     <h2 class="tochead">Contents</h2>
     <p class="lede">Twenty-five reasons and nineteen charts, in workbook order,
       grouped by theme. Tap a section to open it on its own.</p>
+    <div class="catgrid">
+      <a class="catbtn" href="#g-growth">
+        <span class="catname">Growth &amp; inflation</span>
+        <span class="catmeta">5 reasons
+          &middot; 5 charts</span>
+      </a>
+      <a class="catbtn" href="#g-labor">
+        <span class="catname">Labor market</span>
+        <span class="catmeta">3 reasons
+          &middot; 3 charts</span>
+      </a>
+      <a class="catbtn" href="#g-sentiment">
+        <span class="catname">Confidence &amp; leading indicators</span>
+        <span class="catmeta">2 reasons
+          &middot; 2 charts</span>
+      </a>
+      <a class="catbtn" href="#g-household">
+        <span class="catname">Household finances</span>
+        <span class="catmeta">4 reasons
+          &middot; 3 charts</span>
+      </a>
+      <a class="catbtn" href="#g-housing">
+        <span class="catname">Housing &amp; construction</span>
+        <span class="catmeta">5 reasons
+          &middot; 4 charts</span>
+      </a>
+      <a class="catbtn" href="#g-markets">
+        <span class="catname">Markets &amp; credit</span>
+        <span class="catmeta">5 reasons
+          &middot; 2 charts</span>
+      </a>
+      <a class="catbtn" href="#g-fiscal">
+        <span class="catname">Fiscal capacity</span>
+        <span class="catmeta">1 reason
+          &middot; 0 charts</span>
+      </a></div>
+    <h2 class="allhead">All reasons</h2>
     <ol class="tocroot">
       <li class="tocgrp">
         <a class="tocg" href="#g-growth">Growth &amp; inflation</a>
